@@ -2,10 +2,8 @@ package com.example.namustudy.domain;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,4 +20,36 @@ public class Account {
 
     @Column(unique = true)
     private String nickname;
+
+    private String password;
+
+    private boolean emailVerified;
+
+    private String emailCheckToken;
+
+    private LocalDateTime joinedAt;
+
+    private String bio;
+
+    private String url;
+
+    private String occupation;
+
+    private String location; // varchar(255)
+
+    @Lob
+    @Basic(fetch = FetchType.EAGER)
+    private String profileImage;
+
+    private boolean studyCreatedByEmail;
+
+    private boolean studyCreatedByWeb;
+
+    private boolean studyEnrollmentResultByEmail;
+
+    private boolean studyEnrollmentResultByWeb;
+
+    private boolean studyUpdatedByEmail;
+
+    private boolean studyUpdatedByWeb;
 }
