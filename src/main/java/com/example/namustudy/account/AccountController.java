@@ -2,6 +2,9 @@ package com.example.namustudy.account;
 
 import com.example.namustudy.domain.Account;
 import lombok.RequiredArgsConstructor;
+import net.bytebuddy.build.Plugin;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -19,6 +22,7 @@ public class AccountController {
 
     private final SignUpFormValidator signUpFormValidator;
     private final AccountRepository accountRepository;
+    private final JavaMailSender javaMailSender;
 
     @InitBinder("signUpForm")
     public void initBinder(WebDataBinder webDataBinder){
@@ -44,6 +48,10 @@ public class AccountController {
                 .studyEnrollmentResultByWeb(true)
                 .studyUpdatedByWeb(true)
                 .build();
+
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setSubject("스터디나무, 회원 가입 인증");
+        mailMessage.setText("/check-email-token?token=asdfasdf&email=");
 
         Account newAccount = accountRepository.save(account);
 
