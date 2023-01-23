@@ -18,6 +18,7 @@ import javax.validation.Valid;
 public class AccountController {
 
     private final SignUpFormValidator signUpFormValidator;
+    private final AccountRepository accountRepository;
 
     @InitBinder("signUpForm")
     public void initBinder(WebDataBinder webDataBinder){
@@ -43,6 +44,8 @@ public class AccountController {
                 .studyEnrollmentResultByWeb(true)
                 .studyUpdatedByWeb(true)
                 .build();
+
+        Account newAccount = accountRepository.save(account);
 
         // TODO 회원 가입 처리
         return "redirect:/";
