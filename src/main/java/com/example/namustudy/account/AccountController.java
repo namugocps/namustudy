@@ -48,14 +48,15 @@ public class AccountController {
                 .studyEnrollmentResultByWeb(true)
                 .studyUpdatedByWeb(true)
                 .build();
+        Account newAccount =accountRepository.save(account);
 
+        newAccount.generateEmailCheckToken();
         SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(newAccount.getEmail());
         mailMessage.setSubject("스터디나무, 회원 가입 인증");
-        mailMessage.setText("/check-email-token?token=asdfasdf&email=");
+        mailMessage.setText("/check-email-token?token="+newAccount.getEmailCheckToken()+
+                "&email="+newAccount.getEmail());
 
-        Account newAccount = accountRepository.save(account);
-
-        // TODO 회원 가입 처리
         return "redirect:/";
     }
 
