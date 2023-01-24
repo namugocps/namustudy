@@ -56,6 +56,7 @@ public class AccountController {
         mailMessage.setSubject("스터디나무, 회원 가입 인증");
         mailMessage.setText("/check-email-token?token="+newAccount.getEmailCheckToken()+
                 "&email="+newAccount.getEmail());
+        javaMailSender.send(mailMessage);
 
         return "redirect:/";
     }
