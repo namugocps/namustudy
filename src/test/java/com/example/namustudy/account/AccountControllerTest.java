@@ -5,9 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -18,6 +23,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class AccountControllerTest {
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    JavaMailSender javaMailSender;
 
     @Autowired
     private AccountRepository accountRepository;
@@ -43,6 +51,7 @@ class AccountControllerTest {
                 .andExpect(view().name("redirect:/"));
 
         assertTrue(accountRepository.existsByEmail("namugocps@email.com"));
+        then(javaMailSender).should().send(any(SimpleMailMessage.class));
     }
 
 }
