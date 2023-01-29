@@ -1,13 +1,11 @@
 package com.example.namustudy.account;
 
-import com.example.namustudy.domain.Account;
+import com.example.namustudy.account.validator.SignUpFormValidator;
 import lombok.RequiredArgsConstructor;
-import net.bytebuddy.build.Plugin;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;

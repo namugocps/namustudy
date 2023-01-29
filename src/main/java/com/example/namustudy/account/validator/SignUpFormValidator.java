@@ -1,10 +1,12 @@
-package com.example.namustudy.account;
+package com.example.namustudy.account.validator;
 
+import com.example.namustudy.account.AccountRepository;
+import com.example.namustudy.account.SignUpForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
-import javax.validation.Validator;
+import org.springframework.validation.Validator;
 
 @Component
 @RequiredArgsConstructor
