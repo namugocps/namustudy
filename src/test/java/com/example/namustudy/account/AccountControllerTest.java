@@ -30,6 +30,16 @@ class AccountControllerTest {
     @MockBean
     JavaMailSender javaMailSender;
 
+    @DisplayName("인증 메일 확인 - 입력값 오류")
+    @Test
+    void checkEmailToken_with_wrong_input() throws Exception{
+        mockMvc.perform(get("/check-email-token")
+                        .param("token", "sdsfsdfsf")
+                        .param("email", "email@email.com"))
+                        .andExpect(status().isOk())
+                        .andExpect(model().attributeExists("error"));
+    }
+
     @Autowired
     private AccountRepository accountRepository;
     @DisplayName("회원 가입 화면 보이는지 테스트")
