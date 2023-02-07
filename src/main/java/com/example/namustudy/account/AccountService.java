@@ -18,10 +18,11 @@ public class AccountService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public void processNewAccount(SignUpForm signUpForm){
+    public Account processNewAccount(SignUpForm signUpForm){
         Account newAccount = saveNewAccount(signUpForm);
         newAccount.generateEmailCheckToken();
         sendSignUpConfirmEmail(newAccount);
+        return newAccount;
     }
 
     public Account saveNewAccount(SignUpForm signUpForm) {
@@ -46,4 +47,6 @@ public class AccountService {
     }
 
 
+    public void login(Account account) {
+    }
 }
