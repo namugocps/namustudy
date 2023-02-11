@@ -90,7 +90,7 @@ class AccountControllerTest {
                 .param("password", "12345")
                 .with(csrf()))
                 .andExpect(status().isOk())
-                .andExpect(view().name("redirect:/"))
+                .andExpect(view().name("account/sign-up"))
                 .andExpect(unauthenticated());
     }
 
@@ -100,14 +100,14 @@ class AccountControllerTest {
         mockMvc.perform(post("/sign-up")
                 .param("nickname", "seokwon")
                 .param("email", "seokwon@email.com")
-                .param("password", "12345")
+                .param("password", "12345678")
                 .with(csrf()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/"))
                 .andExpect(authenticated().withUsername("seokwon"));
 
 
-        Account account = accountRepository.findByEmail("namugocps@gmail.com");
+        Account account = accountRepository.findByEmail("seokwon@gmail.com");
         assertNotNull(account);
         assertNotEquals(account.getPassword(),"12345678");
         assertNotNull(account.getEmailCheckToken());
