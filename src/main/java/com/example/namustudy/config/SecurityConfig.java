@@ -23,6 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // 상속 받
     @Override
     public void configure(WebSecurity web) throws Exception{
         web.ignoring()
+                .mvcMatchers("/node_modules/**")
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 }
