@@ -18,6 +18,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // 상속 받
         http.authorizeRequests()
                 .mvcMatchers("/","/login","/sign-up","/check-email-token","/email-login","/check-email-login","/login-link")
                 .permitAll().mvcMatchers(HttpMethod.GET,"/profile/*").permitAll().anyRequest().authenticated();
+
+        http.formLogin()
+                .loginPage("/login");
     }
 
     @Override
