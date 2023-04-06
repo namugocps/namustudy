@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -18,5 +20,10 @@ class MainControllerTest {
     @Test
     void login_with_email() throws Exception{
 
+        mockMvc.perform(post("login")
+                .param("username","seokwon")
+                .param("password","12345678"))
+                .andExpect(status().is3xxRedirection());
+        
     }
 }
