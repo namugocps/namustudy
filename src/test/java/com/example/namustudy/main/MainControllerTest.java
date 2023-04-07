@@ -1,5 +1,7 @@
 package com.example.namustudy.main;
 
+import com.example.namustudy.account.AccountService;
+import com.example.namustudy.account.SignUpForm;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -16,9 +18,16 @@ class MainControllerTest {
 
     @Autowired
     MockMvc mockMvc;
+    @Autowired
+    AccountService accountService;
     
     @Test
     void login_with_email() throws Exception{
+        SignUpForm signUpForm = new SignUpForm();
+        signUpForm.setNickname("seokwon");
+        signUpForm.setEmail("seokwon@email.com");
+        signUpForm.setPassword("12345678");
+        accountService.processNewAccount(signUpForm);
 
         mockMvc.perform(post("login")
                 .param("username","seokwon")
