@@ -1,7 +1,11 @@
 package com.example.namustudy.main;
 
+import com.example.namustudy.account.AccountRepository;
 import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.SignUpForm;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,15 +26,26 @@ class MainControllerTest {
     MockMvc mockMvc;
     @Autowired
     AccountService accountService;
-    
-    @Test
-    void login_with_email() throws Exception{
+    @Autowired
+    AccountRepository accountRepository;
+
+    @BeforeEach
+    void beforeEach(){
         SignUpForm signUpForm = new SignUpForm();
         signUpForm.setNickname("seokwon");
         signUpForm.setEmail("seokwon@email.com");
         signUpForm.setPassword("12345678");
         accountService.processNewAccount(signUpForm);
+    }
 
+    @AfterEach
+    void afterEach(){
+        accountRepository.deleteAll();
+    }
+
+    @DisplayName("이메일로 로그인 성공")
+    @Test
+    void login_with_email() throws Exception{
         mockMvc.perform(post("login")
                 .param("username","seokwon@email.com")
                 .param("password","12345678")
@@ -40,5 +55,19 @@ class MainControllerTest {
                 .andExpect(authenticated().withUsername("seokwon"));
         ;
         
+    }
+
+    @DisplayName("이메일로 로그인 성공")
+    @Test
+    void login_with_nickname() throws Exception{
+        mockMvc.perform(post("login")
+                .param("username","seokwon@email.com")
+                .param("password","12345678")
+                .with(csrf()))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/"))
+                .andExpect(authenticated().withUsername("seokwon"));
+        ;
+
     }
 }
