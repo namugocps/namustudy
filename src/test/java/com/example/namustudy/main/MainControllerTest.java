@@ -61,13 +61,23 @@ class MainControllerTest {
     @Test
     void login_with_nickname() throws Exception{
         mockMvc.perform(post("login")
-                .param("username","seokwon@email.com")
+                .param("username","seokwon")
                 .param("password","12345678")
                 .with(csrf()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/"))
                 .andExpect(authenticated().withUsername("seokwon"));
-        ;
+    }
 
+    @DisplayName("로그인 실패")
+    @Test
+    void login_fail() throws Exception{
+        mockMvc.perform(post("login")
+                .param("username","seokwon")
+                .param("password","12345678")
+                .with(csrf()))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/login?error"))
+                .andExpect(authenticated());
     }
 }
