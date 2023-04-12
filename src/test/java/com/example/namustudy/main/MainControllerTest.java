@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated;
+import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.unauthenticated;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -46,7 +47,7 @@ class MainControllerTest {
     @DisplayName("이메일로 로그인 성공")
     @Test
     void login_with_email() throws Exception{
-        mockMvc.perform(post("login")
+        mockMvc.perform(post("/login")
                 .param("username","seokwon@email.com")
                 .param("password","12345678")
                 .with(csrf()))
@@ -60,7 +61,7 @@ class MainControllerTest {
     @DisplayName("이메일로 로그인 성공")
     @Test
     void login_with_nickname() throws Exception{
-        mockMvc.perform(post("login")
+        mockMvc.perform(post("/login")
                 .param("username","seokwon")
                 .param("password","12345678")
                 .with(csrf()))
@@ -72,12 +73,22 @@ class MainControllerTest {
     @DisplayName("로그인 실패")
     @Test
     void login_fail() throws Exception{
-        mockMvc.perform(post("login")
+        mockMvc.perform(post("/login")
                 .param("username","seokwon")
                 .param("password","12345678")
                 .with(csrf()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/login?error"))
-                .andExpect(authenticated());
+                .andExpect(unauthenticated());
+    }
+
+    @DisplayName("로그아웃")
+    @Test
+    void logout() throws Exception{
+        mockMvc.perform(post("/logout")
+                .with(csrf()))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/login?error"))
+                .andExpect(unauthenticated());
     }
 }
