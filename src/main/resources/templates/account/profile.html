@@ -41,15 +41,21 @@
                           </p>
                           <p th:if="${!#strings.isEmpty(account.occupation)}">
                             <span style="...">
-                                <i class="fa fa-link col-1"></i>
+                                <i class="fa fa-briefcase col-1"></i>
                             </span>
                               <span th:text="${account.occupation}" class="col-9"></span>
                           </p>
-                          <p th:if="${!#strings.isEmpty(account.occupation)}">
+                          <p th:if="${!#strings.isEmpty(account.location)}">
                             <span style="...">
-                                <i class="fa fa-link col-1"></i>
+                                <i class="fa fa-location-arrow col-1"></i>
                             </span>
-                              <span th:text="${account.occupation}" class="col-9"></span>
+                              <span th:text="${account.location}" class="col-9"></span>
+                          </p>
+                          <p th:if="${isOwner}">
+                            <span style="...">
+                                <i class="fa fa-envelope-o col-1"></i>
+                            </span>
+                              <span th:text="${account.email}" class="col-9"></span>
                           </p>
                       </div>
                       <div class="tab-pane fade" id="v-pills-study" role="tabpanel" arial-labelledby="v-pills-profile-tab">
