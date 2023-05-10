@@ -18,6 +18,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class AccountService implements UserDetailsService {
 
@@ -25,7 +26,7 @@ public class AccountService implements UserDetailsService {
     private final JavaMailSender javaMailSender;
     private final PasswordEncoder passwordEncoder;
 
-    @Transactional
+
     public Account processNewAccount(SignUpForm signUpForm){
         Account newAccount = saveNewAccount(signUpForm);
         newAccount.generateEmailCheckToken();
