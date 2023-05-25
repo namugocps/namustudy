@@ -12,8 +12,11 @@
             <div class="row">
                 <h2 class="col-sm-12" th:text="${account.nickname}">whiteship</h2>
             </div>
-            <div class="row mt-3" th:fragment="profile-form">
-                
+            <div class="row mt-3">
+                <form class="col-sm-6" action="#"
+                      th:action="@{/settings/profile}" th:object="${profile}" method="post" novalidate>
+                    
+                </form>
             </div>
         </div>
     </div>
