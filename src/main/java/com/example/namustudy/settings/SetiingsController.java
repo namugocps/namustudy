@@ -1,5 +1,6 @@
 package com.example.namustudy.settings;
 
+import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.CurrentUser;
 import com.example.namustudy.domain.Account;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ import javax.validation.Valid;
 public class SetiingsController {
 
     private static final String SETTINGS_PROFILE_VIEW_NAME = "settings/profile";
+    private static final String SETTINGS_PROFILE_URL = "/settings/profile";
+
+    private final AccountService accountService;
 
     @GetMapping("/settings/profile")
     public String profileUpdateForm(@CurrentUser Account account, Model model){
@@ -28,5 +32,8 @@ public class SetiingsController {
             model.addAttribute(account);
             return SETTINGS_PROFILE_VIEW_NAME;
         }
+
+        accountService.updateProfile(account, profile);
+        return "redirect:/" +SETTINGS_PROFILE_URL;
     }
 }
