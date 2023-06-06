@@ -2,8 +2,10 @@ package com.example.namustudy.settings;
 
 import com.example.namustudy.domain.Account;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class Profile {
 
     private String bio;
