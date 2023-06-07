@@ -36,6 +36,6 @@ public class SetiingsController {
         }
 
         accountService.updateProfile(account, profile);
-        return "redirect:/" +SETTINGS_PROFILE_URL;
+        return "redirect:" +SETTINGS_PROFILE_URL;
     }
 }
