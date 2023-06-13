@@ -29,7 +29,7 @@ public class SetiingsController {
         return SETTINGS_PROFILE_VIEW_NAME;
     }
 
-    @PostMapping("/settings/profile")
+    @PostMapping(SETTINGS_PROFILE_URL)
     public String updateProfile(@CurrentUser Account account, @Valid Profile profile, Errors errors, Model model,
                                 RedirectAttributes attributes){
         if(errors.hasErrors()){
