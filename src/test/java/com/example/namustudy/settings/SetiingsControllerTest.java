@@ -9,6 +9,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -21,6 +23,8 @@ class SetiingsControllerTest {
     @Test
     void updateProfile() throws Exception{
         mockMvc.perform(post(SetiingsController.SETTINGS_PROFILE_URL)
-                .param("bio", "짧은 소개를 수정하는 경우."));
+                .param("bio", "짧은 소개를 수정하는 경우."))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl(SetiingsController.SETTINGS_PROFILE_URL));
     }
 }
