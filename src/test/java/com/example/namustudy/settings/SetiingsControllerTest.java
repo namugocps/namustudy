@@ -1,5 +1,7 @@
 package com.example.namustudy.settings;
 
+import com.example.namustudy.account.AccountRepository;
+import com.example.namustudy.account.AccountService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,12 @@ class SetiingsControllerTest {
 
     @Autowired
     MockMvc mockMvc;
+
+    @Autowired
+    AccountService accountService;
+
+    @Autowired
+    AccountRepository accountRepository;
 
     @DisplayName("프로필 수정하기 - 입력값 정상")
     @Test
