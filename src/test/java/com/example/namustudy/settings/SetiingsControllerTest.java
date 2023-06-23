@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -32,7 +33,8 @@ class SetiingsControllerTest {
     void updateProfile() throws Exception{
         String bio = "짧은 소개 수정";
         mockMvc.perform(post(SetiingsController.SETTINGS_PROFILE_URL)
-                .param("bio", "짧은 소개를 수정하는 경우."))
+                .param("bio", "짧은 소개를 수정하는 경우.")
+                .with(csrf()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl(SetiingsController.SETTINGS_PROFILE_URL))
                 .andExpect(flash().attributeExists("message"));
