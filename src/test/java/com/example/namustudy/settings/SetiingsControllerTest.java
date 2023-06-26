@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.TestExecutionEvent;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -40,7 +41,7 @@ class SetiingsControllerTest {
         accountService.processNewAccount(signUpForm);
     }
 
-    @WithUserDetails("seokwon")
+    @WithUserDetails(value = "seokwon", setupBefore = TestExecutionEvent.TEST_EXECUTION)
     @DisplayName("프로필 수정하기 - 입력값 정상")
     @Test
     void updateProfile() throws Exception{
