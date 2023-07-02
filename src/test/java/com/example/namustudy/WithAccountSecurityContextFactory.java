@@ -1,6 +1,7 @@
 package com.example.namustudy;
 
 import com.example.namustudy.account.AccountService;
+import com.example.namustudy.account.SignUpForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -17,9 +18,16 @@ public class WithAccountSecurityContextFactory implements WithSecurityContextFac
     public SecurityContext createSecurityContext(WithAccount withAccount) {
         String nickname = withAccount.value();
 
+        SignUpForm signUpForm = new SignUpForm();
+        signUpForm.setNickname("seokwon");
+        signUpForm.setEmail("seokwon@email.com");
+        signUpForm.setPassword("12345678");
+        accountService.processNewAccount(signUpForm);
+
         UserDetails principal = accountService.loadUserByUsername(nickname);
         Authentication authentication = new UsernamePasswordAuthenticationToken(principal, principal.getPassword(), principal.getAuthorities());
         SecurityContext context = SecurityContextHolder.createEmptyContext();
         context.setAuthentication(authentication);
+        return context;
     }
 }
