@@ -1,5 +1,6 @@
 package com.example.namustudy.settings;
 
+import com.example.namustudy.WithAccount;
 import com.example.namustudy.account.AccountRepository;
 import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.SignUpForm;
@@ -32,16 +33,8 @@ class SetiingsControllerTest {
     @Autowired
     AccountRepository accountRepository;
 
-    @BeforeEach
-    void beforeEach(){
-        SignUpForm signUpForm = new SignUpForm();
-        signUpForm.setNickname("seokwon");
-        signUpForm.setEmail("seokwon@email.com");
-        signUpForm.setPassword("12345678");
-        accountService.processNewAccount(signUpForm);
-    }
 
-    @WithUserDetails(value = "seokwon", setupBefore = TestExecutionEvent.TEST_EXECUTION)
+    @WithAccount("seokwon")
     @DisplayName("프로필 수정하기 - 입력값 정상")
     @Test
     void updateProfile() throws Exception{
