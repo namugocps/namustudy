@@ -5,6 +5,7 @@ import com.example.namustudy.account.AccountRepository;
 import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.SignUpForm;
 import com.example.namustudy.domain.Account;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -33,6 +34,10 @@ class SetiingsControllerTest {
     @Autowired
     AccountRepository accountRepository;
 
+    @AfterEach
+    void afterEach(){
+        accountRepository.deleteAll();
+    }
 
     @WithAccount("seokwon")
     @DisplayName("프로필 수정하기 - 입력값 정상")
