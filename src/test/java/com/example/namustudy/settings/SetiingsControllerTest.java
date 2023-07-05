@@ -27,10 +27,7 @@ class SetiingsControllerTest {
 
     @Autowired
     MockMvc mockMvc;
-
-    @Autowired
-    AccountService accountService;
-
+    
     @Autowired
     AccountRepository accountRepository;
 
