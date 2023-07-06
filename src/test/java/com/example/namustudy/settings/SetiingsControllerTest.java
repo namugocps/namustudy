@@ -42,8 +42,25 @@ class SetiingsControllerTest {
     void updateProfile() throws Exception{
         String bio = "짧은 소개 수정";
         mockMvc.perform(post(SetiingsController.SETTINGS_PROFILE_URL)
-                .param("bio", "짧은 소개를 수정하는 경우.")
+                .param("bio", bio)
                 .with(csrf()))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl(SetiingsController.SETTINGS_PROFILE_URL))
+                .andExpect(flash().attributeExists("message"));
+
+        Account kee = accountRepository.findByNickname("kee");
+        assertEquals(bio, kee.getBio());
+    }
+
+
+    @WithAccount("seokwon")
+    @DisplayName("프로필 수정하기 - 입력값 에러")
+    @Test
+    void updateProfile_error() throws Exception{
+        String bio = "길게 소개를 수정하는 경우. 길게 소개를 수정하는 경우. 길게 소개를 수정하는 경우. 길게 소개를 수정하는 경우. 길게 소개를 수정하는 경우.";
+        mockMvc.perform(post(SetiingsController.SETTINGS_PROFILE_URL)
+                        .param("bio", bio)
+                        .with(csrf()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl(SetiingsController.SETTINGS_PROFILE_URL))
                 .andExpect(flash().attributeExists("message"));
