@@ -61,7 +61,7 @@ class SetiingsControllerTest {
         mockMvc.perform(post(SetiingsController.SETTINGS_PROFILE_URL)
                         .param("bio", bio)
                         .with(csrf()))
-                .andExpect(status().is3xxRedirection())
+                .andExpect(status().isOk())
                 .andExpect(redirectedUrl(SetiingsController.SETTINGS_PROFILE_URL))
                 .andExpect(flash().attributeExists("message"));
 
