@@ -63,7 +63,8 @@ class SetiingsControllerTest {
                         .with(csrf()))
                 .andExpect(status().isOk())
                 .andExpect(view().name(SetiingsController.SETTINGS_PROFILE_URL))
-                .andExpect(flash().attributeExists("message"));
+                .andExpect(model().attributeExists("account"))
+                .andExpect(model().hasErrors());
 
         Account kee = accountRepository.findByNickname("kee");
         assertEquals(bio, kee.getBio());
