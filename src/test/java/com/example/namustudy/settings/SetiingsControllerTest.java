@@ -64,6 +64,7 @@ class SetiingsControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name(SetiingsController.SETTINGS_PROFILE_URL))
                 .andExpect(model().attributeExists("account"))
+                .andExpect(model().attributeExists("profile"))
                 .andExpect(model().hasErrors());
 
         Account kee = accountRepository.findByNickname("kee");
