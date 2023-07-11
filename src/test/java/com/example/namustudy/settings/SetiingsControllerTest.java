@@ -67,7 +67,7 @@ class SetiingsControllerTest {
                 .andExpect(model().attributeExists("profile"))
                 .andExpect(model().hasErrors());
 
-        Account kee = accountRepository.findByNickname("kee");
-        assertEquals(bio, kee.getBio());
+        Account kee = accountRepository.findByNickname("seokwon");
+        assertNull(kee.getBio());
     }
 }
