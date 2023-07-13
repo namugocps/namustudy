@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -34,6 +35,20 @@ class SetiingsControllerTest {
     @AfterEach
     void afterEach(){
         accountRepository.deleteAll();
+    }
+
+    @WithAccount("seokwon")
+    @DisplayName("프로필 수정 폼")
+    @Test
+    void updateProfileForm() throws Exception{
+        String bio = "짧은 소개 수정하는 경우";
+        mockMvc.perform(get(SetiingsController.SETTINGS_PROFILE_URL))
+                .andExpect(status().isOk())
+                .andExpect(redirectedUrl(SetiingsController.SETTINGS_PROFILE_URL))
+                .andExpect(flash().attributeExists("message"));
+
+        Account kee = accountRepository.findByNickname("kee");
+        assertEquals(bio, kee.getBio());
     }
 
     @WithAccount("seokwon")
