@@ -41,7 +41,6 @@ class SetiingsControllerTest {
     @DisplayName("프로필 수정 폼")
     @Test
     void updateProfileForm() throws Exception{
-        String bio = "짧은 소개 수정하는 경우";
         mockMvc.perform(get(SetiingsController.SETTINGS_PROFILE_URL))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("account"))
