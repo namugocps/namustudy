@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@popperjs/core@^2.11.6":
+  version "2.11.8"
+  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
+  integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
+
 "@types/node@*":
   version "18.14.6"
   resolved "https://registry.npmjs.org/@types/node/-/node-18.14.6.tgz"
@@ -26,7 +31,7 @@ cropper@^4.1.0:
   dependencies:
     cropperjs "^1.5.6"
 
-cropperjs@^1.5.6:
+cropperjs@^1.5.6, cropperjs@>=1.0.0:
   version "1.5.13"
   resolved "https://registry.npmjs.org/cropperjs/-/cropperjs-1.5.13.tgz"
   integrity sha512-by7jKAo73y5/Do0K6sxdTKHgndY0NMjG2bEdgeJxycbcmHuCiMXqw8sxy5C5Y5WTOTcDGmbT7Sr5CgKOXR06OA==
@@ -42,6 +47,11 @@ jdenticon@^3.2.0:
   integrity sha512-z6Iq3fTODUMSOiR2nNYrqigS6Y0GvdXfyQWrUby7htDHvX7GNEwaWR4hcaL+FmhEgBe08Xkup/BKxXQhDJByPA==
   dependencies:
     canvas-renderer "~2.2.0"
+
+jquery-cropper@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/jquery-cropper/-/jquery-cropper-1.0.1.tgz"
+  integrity sha512-KGlY8b0IJQi2Bxe3lqMKmd5Z2Ce4GrnDE5O8Iciza9xCzXISkL6EqX/jFHwnLL1H6Q4FGjoRguuv3lxezsbKJQ==
 
 jquery@^3.6.3, jquery@>=1.9.1:
   version "3.6.3"
