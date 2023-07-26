@@ -100,8 +100,15 @@
             $("#profile-image-file").change(function(e){
                if(e.target.files.length===1){
                    const reader = new FileReader();
-                   reader.onload = e=>{
+                   reader.onload = e=> {
                        let img = document.createElement("img");
+                       img.id = 'new-profile';
+                       img.src = e.target.result;
+                       img.width = 250;
+
+                       $newProfileImage.html(img);
+                       $newProfileImage.show();
+                       $currentProfileImage.hide();
                    }
                }
             });
