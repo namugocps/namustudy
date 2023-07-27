@@ -109,6 +109,14 @@
                        $newProfileImage.html(img);
                        $newProfileImage.show();
                        $currentProfileImage.hide();
+
+                       let $newImage = $(img);
+                       $newImage.cropper({aspectRatio: 1});
+                       cropper = $newImage.data('cropper');
+
+                       $cutBtn.show();
+                       $confirmBtn.hide();
+                       $resetBtn.show();
                    }
                }
             });
