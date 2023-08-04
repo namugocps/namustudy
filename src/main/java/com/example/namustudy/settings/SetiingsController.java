@@ -44,4 +44,9 @@ public class SetiingsController {
         attributes.addFlashAttribute("message","프로필을 수정했습니다.");
         return "redirect:" +SETTINGS_PROFILE_URL;
     }
+
+    @GetMapping(SETTINGS_PASSWORD_URL)
+    public String passwordUpdateForm(@CurrentUser Account account, Model model){
+        model.addAttribute(account);
+    }
 }
