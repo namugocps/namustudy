@@ -33,7 +33,7 @@ public class SetiingsController {
     private final AccountService accountService;
 
     @GetMapping(SETTINGS_PROFILE_URL)
-    public String profileUpdateForm(@CurrentUser Account account, Model model){
+    public String updateProfileForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(new Profile(account));
         return SETTINGS_PROFILE_VIEW_NAME;
@@ -53,9 +53,20 @@ public class SetiingsController {
     }
 
     @GetMapping(SETTINGS_PASSWORD_URL)
-    public String passwordUpdateForm(@CurrentUser Account account, Model model){
+    public String updatePasswordForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(new PasswordForm());
         return SETTINGS_PASSWORD_VIEW_NAME;
+    }
+
+    @PostMapping(SETTINGS_PASSWORD_URL)
+    public String updatePassword(@CurrentUser Account account, @Valid PasswordForm passwordForm
+            , Errors errors, Model model, RedirectAttributes attributes){
+
+        if(errors.hasErrors()){
+            model.addAttribute(account);
+            return SETTINGS_PASSWORD_VIEW_NAME;
+        }
+
     }
 }
