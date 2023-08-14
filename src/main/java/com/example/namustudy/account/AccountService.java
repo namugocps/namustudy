@@ -95,4 +95,9 @@ public class AccountService implements UserDetailsService {
         accountRepository.save(account);
         // TODO 문제 하나 더
     }
+
+    public void updatePassword(Account account, String newPassword) {
+        account.setPassword(newPassword);
+        accountRepository.save(account); // merge
+    }
 }
