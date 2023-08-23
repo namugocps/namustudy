@@ -81,4 +81,15 @@ class SetiingsControllerTest {
         Account kee = accountRepository.findByNickname("seokwon");
         assertNull(kee.getBio());
     }
+
+
+    @WithAccount("seokwon")
+    @DisplayName("패스워드 수정 폼")
+    @Test
+    void updatePassword_form() throws Exception{
+        mockMvc.perform(get(SetiingsController.SETTINGS_PASSWORD_URL))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("account"))
+                .andExpect(model().attributeExists("passwordForm"));
+    }
 }
