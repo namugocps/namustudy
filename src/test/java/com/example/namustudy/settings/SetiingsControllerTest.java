@@ -111,4 +111,19 @@ class SetiingsControllerTest {
         Account seokwon = accountRepository.findByNickname("seokwon");
         assertTrue(passwordEncoder.matches("12345678",seokwon.getPassword());
     }
+
+    @WithAccount("seokwon")
+    @DisplayName("패스워드 수정 - 입력값 에러 - 패스워드 불일치")
+    @Test
+    void updatePassword_fail() throws Exception{
+        mockMvc.perform(get(SetiingsController.SETTINGS_PASSWORD_URL)
+                .param("newPassword","12345678")
+                .param("newPasswordConfirm","12345678")
+                .with(csrf()))
+                .andExpect(status().isOk())
+                .andExpect(view().name(SetiingsController.SETTINGS_PASSWORD_VIEW_NAME))
+                .andExpect(model().hasErrors())
+                .andExpect(model().attributeExists("passwordForm"))
+                .andExpect(model().attributeExists("account"));
+    }
 }
