@@ -109,7 +109,7 @@ class SetiingsControllerTest {
                 .andExpect(flash().attributeExists("message"));
 
         Account seokwon = accountRepository.findByNickname("seokwon");
-        assertTrue(passwordEncoder.matches("12345678",seokwon.getPassword());
+        assertTrue(passwordEncoder.matches("12345678",seokwon.getPassword()));
     }
 
     @WithAccount("seokwon")
