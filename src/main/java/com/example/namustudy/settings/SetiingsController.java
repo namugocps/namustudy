@@ -72,4 +72,11 @@ public class SetiingsController {
         attributes.addFlashAttribute("message", "패스워드를 변경했습니다.");
         return "redirect:" + SETTINGS_PASSWORD_URL;
     }
+
+    @GetMapping(SETTINGS_NOTIFICATIONS_URL)
+    public String updateNotificationsForm(@CurrentUser Account account, Model model){
+        model.addAttribute(account);
+        model.addAttribute(new Notifications(account));
+        return SETTINGS_NOTIFICATIONS_VIEW_NAME;
+    }
 }
