@@ -30,6 +30,9 @@ public class SetiingsController {
     static final String SETTINGS_PASSWORD_VIEW_NAME = "settings/password";
     static final String SETTINGS_PASSWORD_URL = "/settings/password";
 
+    static final String SETTINGS_NOTIFICATIONS_VIEW_NAME = "settings/notifications";
+    static final String SETTINGS_NOTIFICATIONS_URL = "/settings/notifications";
+
     private final AccountService accountService;
 
     @GetMapping(SETTINGS_PROFILE_URL)
