@@ -82,4 +82,14 @@ public class SetiingsController {
         model.addAttribute(new Notifications(account));
         return SETTINGS_NOTIFICATIONS_VIEW_NAME;
     }
+
+    @PostMapping(SETTINGS_NOTIFICATIONS_URL)
+    public String updateNotifications(@CurrentUser Account account, @Valid Notifications notifications, Errors errors, Model model,
+                                      RedirectAttributes attributes){
+        if(errors.hasErrors()){
+            model.addAttribute(account);
+            return SETTINGS_NOTIFICATIONS_VIEW_NAME;
+        }
+        return SETTINGS_NOTIFICATIONS_URL;
+    }
 }
