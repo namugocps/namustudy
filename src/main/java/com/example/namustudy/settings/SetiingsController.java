@@ -90,6 +90,9 @@ public class SetiingsController {
             model.addAttribute(account);
             return SETTINGS_NOTIFICATIONS_VIEW_NAME;
         }
+
+        accountService.updateNotifications(account, notifications);
+        attributes.addFlashAttribute("message", "알림 설정을 변경했습니다.");
         return SETTINGS_NOTIFICATIONS_URL;
     }
 }
