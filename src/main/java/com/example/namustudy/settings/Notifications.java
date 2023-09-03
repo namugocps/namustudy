@@ -8,4 +8,6 @@ import lombok.NoArgsConstructor;
 public class Notifications {
 
     private boolean studyCreatedByEamil;
+
+    private boolean studyCreatedByWeb;
 }
