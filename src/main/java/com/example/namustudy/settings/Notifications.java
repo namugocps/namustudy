@@ -10,4 +10,6 @@ public class Notifications {
     private boolean studyCreatedByEamil;
 
     private boolean studyCreatedByWeb;
+
+    private boolean studyEnrollmentResultByEamil;
 }
