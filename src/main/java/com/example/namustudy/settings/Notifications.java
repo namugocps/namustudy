@@ -16,4 +16,6 @@ public class Notifications {
     private boolean studyEnrollmentResultByWeb;
 
     private boolean studyUpdatedByEmail;
+
+    private boolean studyUpdatedByWeb;
 }
