@@ -12,7 +12,7 @@ public class Notifications {
 
     private boolean studyCreatedByWeb;
 
-    private boolean studyEnrollmentResultByEamil;
+    private boolean studyEnrollmentResultByEmail;
 
     private boolean studyEnrollmentResultByWeb;
 
@@ -20,7 +20,9 @@ public class Notifications {
 
     private boolean studyUpdatedByWeb;
 
-    public Notifications(Account account){
+    public Notifications(Account account) {
         this.studyCreatedByEamil = account.isStudyCreatedByEmail();
+        this.studyCreatedByWeb = account.isStudyCreatedByWeb();
+        this.studyEnrollmentResultByEmail = account.isStudyEnrollmentResultByEmail();
     }
 }
