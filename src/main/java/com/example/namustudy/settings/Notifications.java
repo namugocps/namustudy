@@ -24,6 +24,7 @@ public class Notifications {
         this.studyCreatedByEamil = account.isStudyCreatedByEmail();
         this.studyCreatedByWeb = account.isStudyCreatedByWeb();
         this.studyEnrollmentResultByEmail = account.isStudyEnrollmentResultByEmail();
+        this.studyEnrollmentResultByWeb = account.isStudyUpdatedByWeb();
         this.studyUpdatedByEmail = account.isStudyUpdatedByEmail();
         this.studyUpdatedByWeb = account.isStudyUpdatedByWeb();
     }
