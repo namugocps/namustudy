@@ -1,6 +1,7 @@
 package com.example.namustudy.account;
 
 import com.example.namustudy.domain.Account;
+import com.example.namustudy.settings.Notifications;
 import com.example.namustudy.settings.Profile;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
@@ -99,5 +100,8 @@ public class AccountService implements UserDetailsService {
     public void updatePassword(Account account, String newPassword) {
         account.setPassword(passwordEncoder.encode(newPassword));
         accountRepository.save(account); // merge
+    }
+
+    public void updateNotifications(Account account, Notifications notifications) {
     }
 }
