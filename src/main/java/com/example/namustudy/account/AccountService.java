@@ -108,5 +108,6 @@ public class AccountService implements UserDetailsService {
         account.setStudyUpdatedByWeb(notifications.isStudyUpdatedByWeb());
         account.setStudyUpdatedByEmail(notifications.isStudyUpdatedByEmail());
         account.setStudyEnrollmentResultByWeb(notifications.isStudyEnrollmentResultByWeb());
+        accountRepository.save(account);
     }
 }
