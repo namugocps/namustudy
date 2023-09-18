@@ -107,6 +107,7 @@ public class AccountService implements UserDetailsService {
         account.setStudyCreatedByEmail(notifications.isStudyCreatedByEamil());
         account.setStudyUpdatedByWeb(notifications.isStudyUpdatedByWeb());
         account.setStudyUpdatedByEmail(notifications.isStudyUpdatedByEmail());
+        account.setStudyEnrollmentResultByEmail(notifications.isStudyEnrollmentResultByEmail());
         account.setStudyEnrollmentResultByWeb(notifications.isStudyEnrollmentResultByWeb());
         accountRepository.save(account);
     }
