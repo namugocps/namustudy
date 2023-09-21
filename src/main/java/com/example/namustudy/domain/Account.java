@@ -50,7 +50,7 @@ public class Account {
 
     private boolean studyEnrollmentResultByEmail;
 
-    private boolean studyEnrollmentResultByWeb;
+    private boolean studyEnrollmentResultByWeb = true;
 
     private boolean studyUpdatedByEmail;
 
