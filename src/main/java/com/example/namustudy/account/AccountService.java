@@ -90,6 +90,8 @@ public class AccountService implements UserDetailsService {
     }
 
     public void updateProfile(Account account, Profile profile) {
+        modelMapper.map(profile, account);
+        
         account.setUrl(profile.getUrl());
         account.setOccupation(profile.getOccupation());
         account.setLocation(profile.getLocation());
