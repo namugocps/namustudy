@@ -92,7 +92,6 @@ public class AccountService implements UserDetailsService {
     public void updateProfile(Account account, Profile profile) {
         modelMapper.map(profile, account);
         accountRepository.save(account);
-        // TODO 문제 하나 더
     }
 
     public void updatePassword(Account account, String newPassword) {
