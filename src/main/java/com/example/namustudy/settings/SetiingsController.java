@@ -19,11 +19,6 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class SetiingsController {
     
-    @InitBinder("passwordForm")
-    public void initBinder(WebDataBinder webDataBinder){
-        webDataBinder.addValidators(new PasswordFormValidator());
-    }
-
     static final String SETTINGS_PROFILE_VIEW_NAME = "settings/profile";
     static final String SETTINGS_PROFILE_URL = "/settings/profile";
 
