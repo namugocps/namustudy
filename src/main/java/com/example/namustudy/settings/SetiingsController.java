@@ -30,6 +30,11 @@ public class SetiingsController {
 
     private final AccountService accountService;
 
+    @InitBinder("passwordForm")
+    public void initBinder(WebDataBinder webDataBinder){
+        webDataBinder.addValidators(new PasswordFormValidator());
+    }
+    
     @GetMapping(SETTINGS_PROFILE_URL)
     public String updateProfileForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
