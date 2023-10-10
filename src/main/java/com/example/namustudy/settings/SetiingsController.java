@@ -4,6 +4,7 @@ import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.CurrentUser;
 import com.example.namustudy.domain.Account;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -29,12 +30,13 @@ public class SetiingsController {
     static final String SETTINGS_NOTIFICATIONS_URL = "/settings/notifications";
 
     private final AccountService accountService;
+    private final ModelMapper modelMapper;
 
     @InitBinder("passwordForm")
     public void initBinder(WebDataBinder webDataBinder){
         webDataBinder.addValidators(new PasswordFormValidator());
     }
-    
+
     @GetMapping(SETTINGS_PROFILE_URL)
     public String updateProfileForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
