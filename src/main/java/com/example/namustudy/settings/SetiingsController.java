@@ -97,4 +97,9 @@ public class SetiingsController {
         attributes.addFlashAttribute("message", "알림 설정을 변경했습니다.");
         return "redirect:" + SETTINGS_NOTIFICATIONS_URL;
     }
+
+    @GetMapping(SETTINGS_ACCOUNT_URL)
+    public String updateAccountForm(@CurrentUser Account account, Model model){
+        
+    }
 }
