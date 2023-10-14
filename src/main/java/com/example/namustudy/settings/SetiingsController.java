@@ -31,6 +31,7 @@ public class SetiingsController {
 
     private final AccountService accountService;
     private final ModelMapper modelMapper;
+    private final NicknameValidator nicknameValidator;
 
     @InitBinder("passwordForm")
     public void initBinder(WebDataBinder webDataBinder){
