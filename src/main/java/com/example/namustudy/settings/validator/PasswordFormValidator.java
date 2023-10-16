@@ -1,5 +1,6 @@
-package com.example.namustudy.settings;
+package com.example.namustudy.settings.validator;
 
+import com.example.namustudy.settings.PasswordForm;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 

@@ -3,6 +3,7 @@ package com.example.namustudy.settings;
 import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.CurrentUser;
 import com.example.namustudy.domain.Account;
+import com.example.namustudy.settings.validator.PasswordFormValidator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
