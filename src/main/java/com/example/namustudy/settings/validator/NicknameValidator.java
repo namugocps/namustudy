@@ -1,6 +1,7 @@
 package com.example.namustudy.settings.validator;
 
 import com.example.namustudy.account.AccountRepository;
+import com.example.namustudy.domain.Account;
 import com.example.namustudy.settings.form.NicknameForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -21,5 +22,6 @@ public class NicknameValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors){
         NicknameForm nicknameForm = (NicknameForm) target;
+        Account byNickname = accountRepository.findByNickname((nicknameForm.getNickname()));
     }
 }
