@@ -40,6 +40,11 @@ public class SetiingsController {
         webDataBinder.addValidators(new PasswordFormValidator());
     }
 
+    @InitBinder("nicknameForm")
+    public void nicknameFormInitBinder(WebDataBinder webDataBinder){
+        webDataBinder.addValidators(nicknameValidator);
+    }
+
     @GetMapping(SETTINGS_PROFILE_URL)
     public String updateProfileForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
