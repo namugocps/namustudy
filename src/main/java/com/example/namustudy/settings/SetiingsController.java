@@ -3,6 +3,7 @@ package com.example.namustudy.settings;
 import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.CurrentUser;
 import com.example.namustudy.domain.Account;
+import com.example.namustudy.settings.form.NicknameForm;
 import com.example.namustudy.settings.validator.NicknameValidator;
 import com.example.namustudy.settings.validator.PasswordFormValidator;
 import lombok.RequiredArgsConstructor;
@@ -108,6 +109,8 @@ public class SetiingsController {
 
     @GetMapping(SETTINGS_ACCOUNT_URL)
     public String updateAccountForm(@CurrentUser Account account, Model model){
+        model.addAttribute(account);
+        model.addAttribute(modelMapper.map(account, NicknameForm.class));
         
     }
 }
