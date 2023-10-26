@@ -114,5 +114,9 @@ public class SetiingsController {
             model.addAttribute(account);
             return SETTINGS_ACCOUNT_VIEW_NAME;
         }
+
+        accountService.updateNickname(account, nicknameForm.getNickname());
+        attributes.addFlashAttribute("message","닉네임을 수정했습니다.");
+        return "redirect:" + SETTINGS_ACCOUNT_URL;
     }
 }
