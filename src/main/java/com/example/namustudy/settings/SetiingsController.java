@@ -108,6 +108,13 @@ public class SetiingsController {
     }
 
     @GetMapping(SETTINGS_ACCOUNT_URL)
+    public String updateAccount(@CurrentUser Account account, Model model){
+        model.addAttribute(account);
+        model.addAttribute(modelMapper.map(account, NicknameForm.class));
+        return SETTINGS_ACCOUNT_VIEW_NAME;
+    }
+
+    @PostMapping(SETTINGS_ACCOUNT_URL)
     public String updateAccount(@CurrentUser Account account, @Valid NicknameForm nicknameForm, Errors errors,
                                     Model model, RedirectAttributes attributes){
         if(errors.hasErrors()){
