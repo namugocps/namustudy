@@ -22,7 +22,7 @@ import javax.validation.Valid;
 @Controller
 @RequiredArgsConstructor
 public class SetiingsController {
-    
+
     static final String SETTINGS_PROFILE_VIEW_NAME = "settings/profile";
     static final String SETTINGS_PROFILE_URL = "/settings/profile";
 
@@ -31,6 +31,9 @@ public class SetiingsController {
 
     static final String SETTINGS_NOTIFICATIONS_VIEW_NAME = "settings/notifications";
     static final String SETTINGS_NOTIFICATIONS_URL = "/settings/notifications";
+
+    static final String SETTINGS_ACCOUNT_VIEW_NAME = "settings/account";
+    static final String SETTINGS_ACCOUNT_URL = "/settings/account";
 
     private final AccountService accountService;
     private final ModelMapper modelMapper;
