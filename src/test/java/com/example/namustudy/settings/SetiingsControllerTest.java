@@ -5,6 +5,7 @@ import com.example.namustudy.account.AccountRepository;
 import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.SignUpForm;
 import com.example.namustudy.domain.Account;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -34,6 +35,8 @@ class SetiingsControllerTest {
     AccountRepository accountRepository;
     @Autowired
     PasswordEncoder passwordEncoder;
+    @Autowired
+    ObjectMapper objectMapper;
 
     @AfterEach
     void afterEach(){
