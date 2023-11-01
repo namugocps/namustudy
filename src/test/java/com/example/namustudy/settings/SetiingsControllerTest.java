@@ -37,12 +37,13 @@ class SetiingsControllerTest {
     PasswordEncoder passwordEncoder;
     @Autowired
     ObjectMapper objectMapper;
+    @Autowired AccountService accountService;
 
     @AfterEach
     void afterEach(){
         accountRepository.deleteAll();
     }
-
+    
     @WithAccount("seokwon")
     @DisplayName("프로필 수정 폼")
     @Test
