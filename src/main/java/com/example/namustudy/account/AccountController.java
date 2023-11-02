@@ -97,4 +97,15 @@ public class AccountController {
         return "account/profile";
     }
 
+    @GetMapping("/login-by-email")
+    public String loginByEamil(String token, String email, Model model){
+        Account account = accountRepository.findByEmail(email);
+        String view = "account/logged-in-by-eamil";
+        if(account == null || !account.isValidToken(token)){
+            model.addAttribute("error", "로그인할 수 없습니다.");
+            return view;
+        }
+        return view;
+    }
+
 }
