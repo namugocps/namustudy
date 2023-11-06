@@ -113,7 +113,7 @@ public class AccountController {
 
         if (!account.canSendConfirmEmail()) {
             model.addAttribute("error", "이메일 로그인은 1시간 뒤에 사용할 수 있습니다.");
-            //return "account/email-login";
+            return "account/email-login";
         }
 
         accountService.sendLoginLink(account);
