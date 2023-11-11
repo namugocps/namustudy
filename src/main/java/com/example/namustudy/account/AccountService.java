@@ -118,5 +118,6 @@ public class AccountService implements UserDetailsService {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(account.getEmail());
         mailMessage.setSubject("스터디나무, 로그인 링크");
+        javaMailSender.send(mailMessage);
     }
 }
