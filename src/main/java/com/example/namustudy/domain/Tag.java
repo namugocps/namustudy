@@ -10,10 +10,12 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-@Builder @AllArgsConstructor
+@Builder @AllArgsConstructor @NoArgsConstructor
 public class Tag {
 
     @Id
     @GeneratedValue
     private Long id;
+
+    private String title;
 }
