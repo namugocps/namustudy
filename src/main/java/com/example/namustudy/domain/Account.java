@@ -57,6 +57,7 @@ public class Account {
 
     private boolean studyUpdatedByWeb = true;
 
+    @ManyToMany
     private Set<Tag> tags;
 
     public void generateEmailCheckToken() {
