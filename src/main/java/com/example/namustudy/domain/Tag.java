@@ -19,5 +19,5 @@ public class Tag {
     private Long id;
 
     @Column(unique =true, nullable =false)
-    private String title;
+    private String tagTitle;
 }
