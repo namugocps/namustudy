@@ -114,7 +114,7 @@ public class SetiingsController {
     }
 
     @GetMapping(SETTINGS_ACCOUNT_URL)
-    public String updateAccount(@CurrentUser Account account, Model model){
+    public String updateAccountForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(modelMapper.map(account, NicknameForm.class));
         return SETTINGS_ACCOUNT_VIEW_NAME;
