@@ -113,6 +113,11 @@ public class SetiingsController {
         return "redirect:" + SETTINGS_NOTIFICATIONS_URL;
     }
 
+    @GetMapping(SETTINGS_TAGS_URL)
+    public String updateTags(@CurrentUser Account account){
+
+    }
+
     @GetMapping(SETTINGS_ACCOUNT_URL)
     public String updateAccountForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
