@@ -114,8 +114,9 @@ public class SetiingsController {
     }
 
     @GetMapping(SETTINGS_TAGS_URL)
-    public String updateTags(@CurrentUser Account account){
-
+    public String updateTags(@CurrentUser Account account, Model model){
+        model.addAttribute(account);
+        return SETTINGS_TAGS_VIEW_NAME;
     }
 
     @GetMapping(SETTINGS_ACCOUNT_URL)
