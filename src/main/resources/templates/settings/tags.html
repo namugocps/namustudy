@@ -50,6 +50,15 @@
                     console.log("${data} and status is ${status}");
                 });
             }
+
+            function onAdd(e){
+                tagRequest("/add", e.detail.data.value);
+            }
+
+            function onRemove(e){
+                tagRequest("/remove", e.detail.data.value);
+            }
+
         });
     </script>
 </body>
