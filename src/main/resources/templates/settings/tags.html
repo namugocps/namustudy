@@ -61,6 +61,13 @@
 
             var tagInput = document.querySelector("#tags");
 
+            var tagify = new Tagify(tagInput, {
+               pattern: /^.{0,20}$/,
+               dropdown:{
+                   enabled: 1,
+               }
+            });
+
         });
     </script>
 </body>
