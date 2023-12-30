@@ -119,6 +119,12 @@ public class SetiingsController {
         return SETTINGS_TAGS_VIEW_NAME;
     }
 
+    @PostMapping("/settings/tags/add")
+    public String addTag(@CurrentUser Account account, Model model){
+        model.addAttribute(account);
+        return SETTINGS_TAGS_VIEW_NAME;
+    }
+
     @GetMapping(SETTINGS_ACCOUNT_URL)
     public String updateAccountForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
