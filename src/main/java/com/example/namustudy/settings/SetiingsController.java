@@ -4,6 +4,7 @@ import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.CurrentUser;
 import com.example.namustudy.domain.Account;
 import com.example.namustudy.settings.form.NicknameForm;
+import com.example.namustudy.settings.form.TagForm;
 import com.example.namustudy.settings.validator.NicknameValidator;
 import com.example.namustudy.settings.validator.PasswordFormValidator;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -120,7 +122,7 @@ public class SetiingsController {
     }
 
     @PostMapping("/settings/tags/add")
-    public String addTag(@CurrentUser Account account, Model model){
+    public String addTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
         model.addAttribute(account);
         return SETTINGS_TAGS_VIEW_NAME;
     }
