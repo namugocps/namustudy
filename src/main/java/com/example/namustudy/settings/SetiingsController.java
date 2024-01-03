@@ -123,7 +123,7 @@ public class SetiingsController {
 
     @PostMapping("/settings/tags/add")
     public String addTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
-        model.addAttribute(account);
+        String title = tagForm.getTagTitle();
         return SETTINGS_TAGS_VIEW_NAME;
     }
 
