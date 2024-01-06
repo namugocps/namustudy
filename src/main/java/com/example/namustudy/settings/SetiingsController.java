@@ -7,6 +7,7 @@ import com.example.namustudy.settings.form.NicknameForm;
 import com.example.namustudy.settings.form.TagForm;
 import com.example.namustudy.settings.validator.NicknameValidator;
 import com.example.namustudy.settings.validator.PasswordFormValidator;
+import com.example.namustudy.tag.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
@@ -43,6 +44,7 @@ public class SetiingsController {
     private final AccountService accountService;
     private final ModelMapper modelMapper;
     private final NicknameValidator nicknameValidator;
+    private final TagRepository tagRepository;
 
     @InitBinder("passwordForm")
     public void initBinder(WebDataBinder webDataBinder){
