@@ -126,6 +126,7 @@ public class SetiingsController {
     @PostMapping("/settings/tags/add")
     public String addTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
         String title = tagForm.getTagTitle();
+        tagRepository.findByTitle(title);
         return SETTINGS_TAGS_VIEW_NAME;
     }
 
