@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -127,7 +128,7 @@ public class SetiingsController {
     @PostMapping("/settings/tags/add")
     public String addTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
         String title = tagForm.getTagTitle();
-        Tag tag = tagRepository.findByTitle(title);
+        Optional<Tag> tag = tagRepository.findByTitle(title);
         return SETTINGS_TAGS_VIEW_NAME;
     }
 
