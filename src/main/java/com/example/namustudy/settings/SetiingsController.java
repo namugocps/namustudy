@@ -128,7 +128,9 @@ public class SetiingsController {
     @PostMapping("/settings/tags/add")
     public String addTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
         String title = tagForm.getTagTitle();
-        Optional<Tag> tag = tagRepository.findByTitle(title);
+        Optional<Tag> tag = Optional.of(tagRepository.findByTitle(title).orElseGet(() -> tagRepository.save(Tag.builder()
+                .title(tagForm.getTagTitle())
+                .build())));
         return SETTINGS_TAGS_VIEW_NAME;
     }
 
