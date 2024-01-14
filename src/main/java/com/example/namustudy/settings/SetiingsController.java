@@ -133,6 +133,9 @@ public class SetiingsController {
 //                .build())));
 
         Tag tag = tagRepository.findByTitle(title);
+        if (tag == null){
+            tag  = tagRepository.save(Tag.builder().title(tagForm.getTagTitle()).build());
+        }
 
         return SETTINGS_TAGS_VIEW_NAME;
     }
