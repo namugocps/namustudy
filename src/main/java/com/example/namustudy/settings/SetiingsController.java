@@ -11,6 +11,7 @@ import com.example.namustudy.settings.validator.PasswordFormValidator;
 import com.example.namustudy.tag.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -124,7 +125,7 @@ public class SetiingsController {
 
     @PostMapping("/settings/tags/add")
     @ResponseBody
-    public String addTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
+    public ResponseEntity addTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
         String title = tagForm.getTagTitle();
 
         Tag tag = tagRepository.findByTitle(title);
