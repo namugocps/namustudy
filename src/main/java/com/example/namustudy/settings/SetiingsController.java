@@ -134,7 +134,7 @@ public class SetiingsController {
         }
 
         accountService.addTag(account, tag);
-        return SETTINGS_TAGS_VIEW_NAME;
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping(SETTINGS_ACCOUNT_URL)
