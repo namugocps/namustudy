@@ -2,6 +2,7 @@ package com.example.namustudy.account;
 
 import com.example.namustudy.config.AppProperties;
 import com.example.namustudy.domain.Account;
+import com.example.namustudy.domain.Tag;
 import com.example.namustudy.settings.Notifications;
 import com.example.namustudy.settings.Profile;
 import lombok.RequiredArgsConstructor;
@@ -121,5 +122,8 @@ public class AccountService implements UserDetailsService {
         mailMessage.setText("/login-by-eamil?token=" + account.getEmailCheckToken()+
                 "&email=" +account.getEmail());
         javaMailSender.send(mailMessage);
+    }
+
+    public void addTag(Account account, Tag tag) {
     }
 }
