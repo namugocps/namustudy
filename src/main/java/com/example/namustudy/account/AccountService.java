@@ -23,6 +23,7 @@ import org.thymeleaf.context.Context;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -125,5 +126,7 @@ public class AccountService implements UserDetailsService {
     }
 
     public void addTag(Account account, Tag tag) {
+        Optional<Account> byId = accountRepository.findById(account.getId());
+        byId.ifPresent(a -> a.getTags().add(tag));
     }
 }
