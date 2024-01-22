@@ -33,6 +33,11 @@
     </div>
 </div>
     <script src="/node_modules/@yaireo/tagify/dist/tagify.min.js"></script>
+    <script src="application/javascript" th:inline="javascript">
+        $(function(){
+            var csrfToken = /*[[${_csrf.token}]]*/ null;
+        })
+    </script>
     <script type="application/javascript">
         $(function(){
             function tagRequest(url, tagTitle) {
