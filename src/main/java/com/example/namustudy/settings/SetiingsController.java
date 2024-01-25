@@ -120,6 +120,8 @@ public class SetiingsController {
     @GetMapping(SETTINGS_TAGS_URL)
     public String updateTags(@CurrentUser Account account, Model model){
         model.addAttribute(account);
+        accountService.getTags(account);
+
         return SETTINGS_TAGS_VIEW_NAME;
     }
 
