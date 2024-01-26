@@ -129,4 +129,7 @@ public class AccountService implements UserDetailsService {
         Optional<Account> byId = accountRepository.findById(account.getId());
         byId.ifPresent(a -> a.getTags().add(tag));
     }
+
+    public void getTags(Account account) {
+    }
 }
