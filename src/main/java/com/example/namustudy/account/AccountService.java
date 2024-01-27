@@ -131,5 +131,6 @@ public class AccountService implements UserDetailsService {
     }
 
     public void getTags(Account account) {
+        accountRepository.findById(account.getId());
     }
 }
