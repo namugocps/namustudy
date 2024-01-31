@@ -124,7 +124,6 @@ public class SetiingsController {
         model.addAttribute(account);
         Set<Tag> tags =accountService.getTags(account);
         model.addAttribute("tags",tags.stream().map(Tag::getTitle).collect(Collectors.toList()));
-
         return SETTINGS_TAGS_VIEW_NAME;
     }
 
