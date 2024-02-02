@@ -131,10 +131,9 @@ public class SetiingsController {
     @ResponseBody
     public ResponseEntity addTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
         String title = tagForm.getTagTitle();
-
         Tag tag = tagRepository.findByTitle(title);
         if (tag == null){
-            tag  = tagRepository.save(Tag.builder().title(tagForm.getTagTitle()).build());
+            tag  = tagRepository.save(Tag.builder().title(title).build());
         }
 
         accountService.addTag(account, tag);
