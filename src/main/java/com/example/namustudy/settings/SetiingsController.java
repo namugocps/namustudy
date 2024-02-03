@@ -147,7 +147,7 @@ public class SetiingsController {
 
         Tag tag = tagRepository.findByTitle(title);
         if (tag == null){
-            tag  = tagRepository.save(Tag.builder().title(tagForm.getTagTitle()).build());
+            return ResponseEntity.badRequest().build();
         }
 
         accountService.addTag(account, tag);
