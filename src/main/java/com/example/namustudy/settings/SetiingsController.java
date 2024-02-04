@@ -150,7 +150,7 @@ public class SetiingsController {
             return ResponseEntity.badRequest().build();
         }
 
-        accountService.addTag(account, tag);
+        accountService.removeTag(account, tag);
         return ResponseEntity.ok().build();
     }
 
