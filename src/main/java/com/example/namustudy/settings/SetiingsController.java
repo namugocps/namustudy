@@ -9,6 +9,7 @@ import com.example.namustudy.settings.form.TagForm;
 import com.example.namustudy.settings.validator.NicknameValidator;
 import com.example.namustudy.settings.validator.PasswordFormValidator;
 import com.example.namustudy.tag.TagRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
@@ -121,12 +122,12 @@ public class SetiingsController {
     }
 
     @GetMapping(SETTINGS_TAGS_URL)
-    public String updateTags(@CurrentUser Account account, Model model){
+    public String updateTags(@CurrentUser Account account, Model model) throws JsonProcessingException {
         model.addAttribute(account);
         Set<Tag> tags =accountService.getTags(account);
         model.addAttribute("tags",tags.stream().map(Tag::getTitle).collect(Collectors.toList()));
 
-        List<String> collect = tagRepository.findAll().stream().map(Tag::getTitle).collect(Collectors.toList());
+        List<String> allTags = tagRepository.findAll().stream().map(Tag::getTitle).collect(Collectors.toList());
         return SETTINGS_TAGS_VIEW_NAME;
     }
 
