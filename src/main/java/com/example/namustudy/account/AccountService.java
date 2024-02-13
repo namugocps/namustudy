@@ -46,6 +46,8 @@ public class AccountService implements UserDetailsService {
     }
 
     public Account saveNewAccount(SignUpForm signUpForm) {
+        signUpForm.setPassword(passwordEncoder.encode(signUpForm.getPassword()));
+
         Account account = Account.builder()
                 .email(signUpForm.getEmail())
                 .nickname(signUpForm.getEmail())
