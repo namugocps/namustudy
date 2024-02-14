@@ -52,8 +52,6 @@ public class AccountService implements UserDetailsService {
                 .email(signUpForm.getEmail())
                 .nickname(signUpForm.getEmail())
                 .password(passwordEncoder.encode(signUpForm.getPassword())) //TODO econding 해야함
-                .studyEnrollmentResultByWeb(true)
-                .studyUpdatedByWeb(true)
                 .build();
         Account newAccount =accountRepository.save(account);
         return newAccount;
