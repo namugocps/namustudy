@@ -47,9 +47,9 @@ public class AccountService implements UserDetailsService {
 
     public Account saveNewAccount(SignUpForm signUpForm) {
         signUpForm.setPassword(passwordEncoder.encode(signUpForm.getPassword()));
-        Account map = modelMapper.map(signUpForm, Account.class);
+        Account account = modelMapper.map(signUpForm, Account.class);
 
-        Account account = Account.builder()
+        account = Account.builder()
                 .email(signUpForm.getEmail())
                 .nickname(signUpForm.getEmail())
                 .password(passwordEncoder.encode(signUpForm.getPassword())) //TODO econding 해야함
