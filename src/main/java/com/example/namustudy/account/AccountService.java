@@ -48,14 +48,8 @@ public class AccountService implements UserDetailsService {
     public Account saveNewAccount(SignUpForm signUpForm) {
         signUpForm.setPassword(passwordEncoder.encode(signUpForm.getPassword()));
         Account account = modelMapper.map(signUpForm, Account.class);
-
-        account = Account.builder()
-                .email(signUpForm.getEmail())
-                .nickname(signUpForm.getEmail())
-                .password(passwordEncoder.encode(signUpForm.getPassword())) //TODO econding 해야함
-                .build();
-        Account newAccount =accountRepository.save(account);
-        return newAccount;
+;
+        return accountRepository.save(account);
     }
 
     public void sendSignUpConfirmEmail(Account newAccount) {
