@@ -35,8 +35,6 @@ public class AccountService implements UserDetailsService {
     private final JavaMailSender javaMailSender;
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper modelMapper;
-    private final AppProperties appProperties;
-
 
     public Account processNewAccount(SignUpForm signUpForm){
         Account newAccount = saveNewAccount(signUpForm);
