@@ -43,6 +43,16 @@ class SetiingsControllerTest {
     void afterEach(){
         accountRepository.deleteAll();
     }
+
+    @WithAccount("seokwon")
+    @DisplayName("태그 수정 폼")
+    @Test
+    void updateTagsForm() throws Exception{
+        mockMvc.perform(get(SetiingsController.SETTINGS_TAGS_URL))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("account"))
+                .andExpect(model().attributeExists("profile"));
+    }
     
     @WithAccount("seokwon")
     @DisplayName("프로필 수정 폼")
