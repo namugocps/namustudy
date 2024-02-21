@@ -49,9 +49,10 @@ class SetiingsControllerTest {
     @Test
     void updateTagsForm() throws Exception{
         mockMvc.perform(get(SetiingsController.SETTINGS_TAGS_URL))
-                .andExpect(status().isOk())
+                .andExpect(view().name(SetiingsController.SETTINGS_TAGS_VIEW_NAME))
                 .andExpect(model().attributeExists("account"))
-                .andExpect(model().attributeExists("profile"));
+                .andExpect(model().attributeExists("whitelist"))
+                .andExpect(model().attributeExists("tags"));
     }
     
     @WithAccount("seokwon")
