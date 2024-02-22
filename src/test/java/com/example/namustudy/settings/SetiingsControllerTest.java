@@ -45,7 +45,7 @@ class SetiingsControllerTest {
     }
 
     @WithAccount("seokwon")
-    @DisplayName("태그 수정 폼")
+    @DisplayName("계정에 태그 수정 폼")
     @Test
     void updateTagsForm() throws Exception{
         mockMvc.perform(get(SetiingsController.SETTINGS_TAGS_URL))
@@ -54,6 +54,14 @@ class SetiingsControllerTest {
                 .andExpect(model().attributeExists("whitelist"))
                 .andExpect(model().attributeExists("tags"));
     }
+
+
+    @WithAccount("seokwon")
+    @DisplayName("계정에 태그 추가")
+    @Test
+    void addTag() throws Exception{
+    }
+
     
     @WithAccount("seokwon")
     @DisplayName("프로필 수정 폼")
