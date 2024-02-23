@@ -5,6 +5,7 @@ import com.example.namustudy.account.AccountRepository;
 import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.SignUpForm;
 import com.example.namustudy.domain.Account;
+import com.example.namustudy.settings.form.TagForm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.context.support.TestExecutionEvent;
 import org.springframework.security.test.context.support.WithUserDetails;
@@ -60,6 +62,14 @@ class SetiingsControllerTest {
     @DisplayName("계정에 태그 추가")
     @Test
     void addTag() throws Exception{
+        TagForm tagForm = new TagForm();
+        tagForm.setTagTitle("newTag");
+
+        mockMvc.perform(post(SetiingsController.SETTINGS_TAGS_URL + "/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"tagTitle\": \"newTag\"}")
+        )
+
     }
 
     
