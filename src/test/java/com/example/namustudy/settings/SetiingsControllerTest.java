@@ -67,8 +67,8 @@ class SetiingsControllerTest {
 
         mockMvc.perform(post(SetiingsController.SETTINGS_TAGS_URL + "/add")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"tagTitle\": \"newTag\"}")
-        )
+                .content(objectMapper.writeValueAsBytes(tagForm))
+        );
 
     }
 
