@@ -68,8 +68,8 @@ class SetiingsControllerTest {
         mockMvc.perform(post(SetiingsController.SETTINGS_TAGS_URL + "/add")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(tagForm))
-        );
-
+                .with(csrf()))
+                .andExpect(status().isOk());
     }
 
     
