@@ -6,6 +6,7 @@ import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.SignUpForm;
 import com.example.namustudy.domain.Account;
 import com.example.namustudy.settings.form.TagForm;
+import com.example.namustudy.tag.TagRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +40,10 @@ class SetiingsControllerTest {
     PasswordEncoder passwordEncoder;
     @Autowired
     ObjectMapper objectMapper;
-    @Autowired AccountService accountService;
+    @Autowired
+    AccountService accountService;
+    @Autowired
+    TagRepository tagRepository;
 
     @AfterEach
     void afterEach(){
