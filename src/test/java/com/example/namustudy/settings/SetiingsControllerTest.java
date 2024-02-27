@@ -5,6 +5,7 @@ import com.example.namustudy.account.AccountRepository;
 import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.SignUpForm;
 import com.example.namustudy.domain.Account;
+import com.example.namustudy.domain.Tag;
 import com.example.namustudy.settings.form.TagForm;
 import com.example.namustudy.tag.TagRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -74,6 +75,8 @@ class SetiingsControllerTest {
                 .content(objectMapper.writeValueAsBytes(tagForm))
                 .with(csrf()))
                 .andExpect(status().isOk());
+
+        Tag newTag = tagRepository.findByTitle("newTag");
     }
 
     
