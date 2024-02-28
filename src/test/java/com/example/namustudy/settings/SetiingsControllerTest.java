@@ -77,6 +77,7 @@ class SetiingsControllerTest {
                 .andExpect(status().isOk());
 
         Tag newTag = tagRepository.findByTitle("newTag");
+        assertNotNull(newTag);
     }
 
     
