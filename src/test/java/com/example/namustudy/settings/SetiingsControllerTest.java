@@ -78,6 +78,7 @@ class SetiingsControllerTest {
 
         Tag newTag = tagRepository.findByTitle("newTag");
         assertNotNull(newTag);
+        accountRepository.findByNickname("seokwon");
     }
 
     
