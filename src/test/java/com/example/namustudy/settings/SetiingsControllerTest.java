@@ -22,12 +22,15 @@ import org.springframework.security.test.context.support.TestExecutionEvent;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
+import javax.transaction.Transactional;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@Transactional
 @SpringBootTest
 @AutoConfigureMockMvc
 class SetiingsControllerTest {
@@ -78,7 +81,8 @@ class SetiingsControllerTest {
 
         Tag newTag = tagRepository.findByTitle("newTag");
         assertNotNull(newTag);
-        assertTrue(accountRepository.findByNickname("seokwon").getTags().contains(newTag));
+        Account seokwon = accountRepository.findByNickname("seokwon")
+        assertTrue(seokwon.getTags().contains(newTag));
     }
 
     
