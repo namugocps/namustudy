@@ -81,7 +81,26 @@ class SetiingsControllerTest {
 
         Tag newTag = tagRepository.findByTitle("newTag");
         assertNotNull(newTag);
-        Account seokwon = accountRepository.findByNickname("seokwon")
+        Account seokwon = accountRepository.findByNickname("seokwon");
+        assertTrue(seokwon.getTags().contains(newTag));
+    }
+
+    @WithAccount("seokwon")
+    @DisplayName("계정에 태그 삭제")
+    @Test
+    void removeTag() throws Exception{
+        TagForm tagForm = new TagForm();
+        tagForm.setTagTitle("newTag");
+
+        mockMvc.perform(post(SetiingsController.SETTINGS_TAGS_URL + "/add")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsBytes(tagForm))
+                        .with(csrf()))
+                .andExpect(status().isOk());
+
+        Tag newTag = tagRepository.findByTitle("newTag");
+        assertNotNull(newTag);
+        Account seokwon = accountRepository.findByNickname("seokwon");
         assertTrue(seokwon.getTags().contains(newTag));
     }
 
