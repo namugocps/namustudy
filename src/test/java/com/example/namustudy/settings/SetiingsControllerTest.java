@@ -89,6 +89,8 @@ class SetiingsControllerTest {
     @DisplayName("계정에 태그 삭제")
     @Test
     void removeTag() throws Exception{
+        Account seokwon = accountRepository.findByNickname("seokwon");
+
         TagForm tagForm = new TagForm();
         tagForm.setTagTitle("newTag");
 
