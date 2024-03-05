@@ -90,6 +90,7 @@ class SetiingsControllerTest {
     @Test
     void removeTag() throws Exception{
         Account seokwon = accountRepository.findByNickname("seokwon");
+        Tag newTag = tagRepository.save(Tag.builder().title("newTag").build());
 
         TagForm tagForm = new TagForm();
         tagForm.setTagTitle("newTag");
