@@ -48,6 +48,8 @@ class SetiingsControllerTest {
     AccountService accountService;
     @Autowired
     TagRepository tagRepository;
+    @Autowired
+    AccountService accountService;
 
     @AfterEach
     void afterEach(){
