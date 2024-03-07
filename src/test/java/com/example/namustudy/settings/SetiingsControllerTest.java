@@ -48,8 +48,6 @@ class SetiingsControllerTest {
     AccountService accountService;
     @Autowired
     TagRepository tagRepository;
-    @Autowired
-    AccountService accountService;
 
     @AfterEach
     void afterEach(){
@@ -93,6 +91,7 @@ class SetiingsControllerTest {
     void removeTag() throws Exception{
         Account seokwon = accountRepository.findByNickname("seokwon");
         Tag newTag = tagRepository.save(Tag.builder().title("newTag").build());
+        accountRepository.addTag(seokwon, newTag);
 
         TagForm tagForm = new TagForm();
         tagForm.setTagTitle("newTag");
