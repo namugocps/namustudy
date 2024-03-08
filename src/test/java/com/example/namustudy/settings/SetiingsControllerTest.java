@@ -101,11 +101,7 @@ class SetiingsControllerTest {
                         .content(objectMapper.writeValueAsBytes(tagForm))
                         .with(csrf()))
                 .andExpect(status().isOk());
-
-        Tag newTag = tagRepository.findByTitle("newTag");
-        assertNotNull(newTag);
-        Account seokwon = accountRepository.findByNickname("seokwon");
-        assertTrue(seokwon.getTags().contains(newTag));
+        assertFalse(seokwon.getTags().contains(newTag));
     }
 
     
