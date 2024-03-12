@@ -15,4 +15,8 @@ public class Zone {
     @GeneratedValue
     private Long id;
 
+    private String city;
+
+    private String localNameOfCity;
+
 }
