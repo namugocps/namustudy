@@ -19,4 +19,6 @@ public class Zone {
 
     private String localNameOfCity;
 
+    private String province;
+
 }
