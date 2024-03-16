@@ -1,4 +1,7 @@
 package com.example.namustudy.zone;
 
-public interface ZoneRepository {
+import com.example.namustudy.domain.Zone;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ZoneRepository extends JpaRepositorytory<Zone, Long>{
 }
