@@ -9,4 +9,6 @@ import javax.transaction.Transactional;
 @Transactional
 @RequiredArgsConstructor
 public class ZoneService {
+
+    private final ZoneRepository zoneRepository;
 }
