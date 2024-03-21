@@ -15,6 +15,9 @@ public class ZoneService {
 
     @PostConstruct
     public void initZoneData(){
+        if(zoneRepository.count() == 0){
+
+        }
         
     }
 }
