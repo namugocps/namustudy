@@ -1,6 +1,8 @@
 package com.example.namustudy.zone;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -16,7 +18,7 @@ public class ZoneService {
     @PostConstruct
     public void initZoneData(){
         if(zoneRepository.count() == 0){
-
+            Resource resource = new ClassPathResource("zones_kr.csv");
         }
         
     }
