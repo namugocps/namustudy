@@ -1,6 +1,7 @@
 package com.example.namustudy.settings;
 
 import com.example.namustudy.account.AccountService;
+import com.example.namustudy.account.CurrentAccount;
 import com.example.namustudy.account.CurrentUser;
 import com.example.namustudy.domain.Account;
 import com.example.namustudy.domain.Tag;
@@ -26,9 +27,20 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static java.lang.Character.UnicodeBlock.TAGS;
+
 @Controller
 @RequiredArgsConstructor
 public class SetiingsController {
+
+    static final String ROOT = "/";
+    static final String SETTINGS = "settings";
+    static final String PROFILE = "/profile";
+    static final String PASSWORD = "/password";
+    static final String NOTIFICATIONS = "/notifications";
+    static final String ACCOUNT = "/account";
+    static final String TAGS = "/tags";
+    static final String ZONES = "/zones";
 
     static final String SETTINGS_PROFILE_VIEW_NAME = "settings/profile";
     static final String SETTINGS_PROFILE_URL = "/settings/profile";
@@ -144,16 +156,16 @@ public class SetiingsController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping(SETTINGS_TAGS_URL +"/remove")
-    @ResponseBody
-    public ResponseEntity removeTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
-        String title = tagForm.getTagTitle();
 
+
+    @PostMapping(TAGS + "/remove")
+    @ResponseBody
+    public ResponseEntity removeTag(@CurrentAccount Account account, @RequestBody TagForm tagForm){
+        String title = tagForm.getTagTitle();
         Tag tag = tagRepository.findByTitle(title);
         if (tag == null){
             return ResponseEntity.badRequest().build();
         }
-
         accountService.removeTag(account, tag);
         return ResponseEntity.ok().build();
     }
