@@ -170,6 +170,12 @@ public class SetiingsController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping(ZONES + "/add")
+    @ResponseBody
+    public ResponseEntity addZone(@CurrentAccount Account account, @RequestBody ZoneForm zoneForm){
+        
+    }
+
     @GetMapping(SETTINGS_ACCOUNT_URL)
     public String updateAccountForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
