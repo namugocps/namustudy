@@ -5,8 +5,10 @@ import com.example.namustudy.account.CurrentAccount;
 import com.example.namustudy.account.CurrentUser;
 import com.example.namustudy.domain.Account;
 import com.example.namustudy.domain.Tag;
+import com.example.namustudy.domain.Zone;
 import com.example.namustudy.settings.form.NicknameForm;
 import com.example.namustudy.settings.form.TagForm;
+import com.example.namustudy.settings.form.ZoneForm;
 import com.example.namustudy.settings.validator.NicknameValidator;
 import com.example.namustudy.settings.validator.PasswordFormValidator;
 import com.example.namustudy.tag.TagRepository;
@@ -173,6 +175,7 @@ public class SetiingsController {
     @PostMapping(ZONES + "/add")
     @ResponseBody
     public ResponseEntity addZone(@CurrentAccount Account account, @RequestBody ZoneForm zoneForm){
+        Zone zone = zoneRepository.findByCityAndProvince(zoneForm.getCityName(), zoneForm.getProvinceName());
         
     }
 
