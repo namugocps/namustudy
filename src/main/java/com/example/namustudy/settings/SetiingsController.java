@@ -12,6 +12,7 @@ import com.example.namustudy.settings.form.ZoneForm;
 import com.example.namustudy.settings.validator.NicknameValidator;
 import com.example.namustudy.settings.validator.PasswordFormValidator;
 import com.example.namustudy.tag.TagRepository;
+import com.example.namustudy.zone.ZoneRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -63,6 +64,7 @@ public class SetiingsController {
     private final ModelMapper modelMapper;
     private final NicknameValidator nicknameValidator;
     private final TagRepository tagRepository;
+    private final ZoneRepository zoneRepository;
 
     @InitBinder("passwordForm")
     public void initBinder(WebDataBinder webDataBinder){
@@ -176,7 +178,9 @@ public class SetiingsController {
     @ResponseBody
     public ResponseEntity addZone(@CurrentAccount Account account, @RequestBody ZoneForm zoneForm){
         Zone zone = zoneRepository.findByCityAndProvince(zoneForm.getCityName(), zoneForm.getProvinceName());
-        
+        if (zone ==null){
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping(SETTINGS_ACCOUNT_URL)
