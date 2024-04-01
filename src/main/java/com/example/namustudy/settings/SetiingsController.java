@@ -181,6 +181,9 @@ public class SetiingsController {
         if (zone ==null){
             return ResponseEntity.badRequest().build();
         }
+
+        accountService.addZone(account, zone);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping(SETTINGS_ACCOUNT_URL)
