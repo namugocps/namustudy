@@ -174,6 +174,18 @@ public class SetiingsController {
         return ResponseEntity.ok().build();
     }
 
+
+    @GetMapping(ZONES)
+    public String updateZonesForm(@CurrentAccount Account account, Model model) throws JsonProcessingException{
+        model.addAttribute(account);
+
+        Set<Zone> zones = accountService.getZones(account);
+        model.addAttribute("zones", zones.stream().map(Zone::toString).collect(Collectors.toList()));
+
+        List<String> allZones = zoneRepository.findAll().stream().map(Zone::toString).collect(Collectors.toList());
+        return SETTINGS + ZONES;
+    }
+
     @PostMapping(ZONES + "/add")
     @ResponseBody
     public ResponseEntity addZone(@CurrentAccount Account account, @RequestBody ZoneForm zoneForm){
