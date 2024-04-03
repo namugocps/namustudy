@@ -183,6 +183,8 @@ public class SetiingsController {
         model.addAttribute("zones", zones.stream().map(Zone::toString).collect(Collectors.toList()));
 
         List<String> allZones = zoneRepository.findAll().stream().map(Zone::toString).collect(Collectors.toList());
+        model.addAttribute("whitelist", objectMapper.writeValueAsString(allZones));
+
         return SETTINGS + ZONES;
     }
 
