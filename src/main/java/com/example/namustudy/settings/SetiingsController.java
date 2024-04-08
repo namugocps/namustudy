@@ -202,7 +202,7 @@ public class SetiingsController {
 
     @PostMapping(ZONES + "/remove")
     @ResponseBody
-    public ResponseEntity addZone(@CurrentAccount Account account, @RequestBody ZoneForm zoneForm){
+    public ResponseEntity removeZone(@CurrentAccount Account account, @RequestBody ZoneForm zoneForm){
         Zone zone = zoneRepository.findByCityAndProvince(zoneForm.getCityName(), zoneForm.getProvinceName());
         if (zone ==null){
             return ResponseEntity.badRequest().build();
