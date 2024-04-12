@@ -4,5 +4,5 @@ public class ZoneForm {
 
     private String zoneName;
 
-    public String getCityName() {}
+    public String getCityName() { return zoneName.substring(0, zoneName.indexOf("("));}
 }
