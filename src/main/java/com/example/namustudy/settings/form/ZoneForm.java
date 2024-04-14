@@ -12,4 +12,8 @@ public class ZoneForm {
     public String getProvinceName(){
         return zoneName.substring(zoneName.indexOf("/") +1);
     }
+
+    public String getLocalNameOfCity(){
+        return zoneName.substring(zoneName.indexOf("(") + 1, zoneName.indexOf(")"));
+    }
 }
