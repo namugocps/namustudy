@@ -1,5 +1,6 @@
 package com.example.namustudy.settings.form;
 
+import com.example.namustudy.domain.Zone;
 import lombok.Data;
 
 @Data
@@ -15,5 +16,11 @@ public class ZoneForm {
 
     public String getLocalNameOfCity(){
         return zoneName.substring(zoneName.indexOf("(") + 1, zoneName.indexOf(")"));
+    }
+
+    public Zone getZone(){
+        return Zone.builder().city(this.getCityName())
+                .localNameOfCity(this.getLocalNameOfCity())
+                .province(this.getProvinceName()).build();
     }
 }
