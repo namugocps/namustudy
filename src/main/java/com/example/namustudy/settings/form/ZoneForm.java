@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class ZoneForm {
 
-    // TODO Seoul(서울)
+    // TODO Seoul(서울)/None
     private String zoneName;
 
     public String getCityName() { return zoneName.substring(0, zoneName.indexOf("("));}
