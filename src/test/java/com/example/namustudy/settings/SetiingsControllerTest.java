@@ -24,6 +24,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import javax.transaction.Transactional;
 
+import static com.example.namustudy.settings.SetiingsController.ZONES;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -53,6 +54,20 @@ class SetiingsControllerTest {
     void afterEach(){
         accountRepository.deleteAll();
     }
+
+
+    @WithAccount("seokwon")
+    @DisplayName("계정의 지역 정보 수정 폼")
+    @Test
+    void updateZonesForm() throws Exception{
+        mockMvc.perform(get(SetiingsController.SETTINGS_TAGS_URL))
+                .andExpect(view().name(SetiingsController.SETTINGS + ZONES))
+                .andExpect(model().attributeExists("account"))
+                .andExpect(model().attributeExists("whitelist"))
+                .andExpect(model().attributeExists("zones"));
+    }
+
+
 
     @WithAccount("seokwon")
     @DisplayName("계정에 태그 수정 폼")
