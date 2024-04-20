@@ -6,6 +6,7 @@ import com.example.namustudy.account.AccountService;
 import com.example.namustudy.account.SignUpForm;
 import com.example.namustudy.domain.Account;
 import com.example.namustudy.domain.Tag;
+import com.example.namustudy.domain.Zone;
 import com.example.namustudy.settings.form.TagForm;
 import com.example.namustudy.tag.TagRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -53,6 +54,26 @@ class SetiingsControllerTest {
     @AfterEach
     void afterEach(){
         accountRepository.deleteAll();
+    }
+
+
+    @WithAccount("seokwon")
+    @DisplayName("계정에 태그 추가")
+    @Test
+    void removeZone() throws Exception{
+        Account seokwon = accountRepository.findByNickname("seokwon");
+        Zone zone = tagRepository.findByCityAndProvince(testZone.getCity(), testZone.getProvinc());
+        accountRepository.addTag(seokwon, zone);
+
+        TagForm tagForm = new TagForm();
+        tagForm.setTagTitle("newTag");
+
+        mockMvc.perform(post(SetiingsController.SETTINGS_TAGS_URL + "/add")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsBytes(tagForm))
+                        .with(csrf()))
+                .andExpect(status().isOk());
+        assertFalse(seokwon.getTags().contains(zone));
     }
 
 
