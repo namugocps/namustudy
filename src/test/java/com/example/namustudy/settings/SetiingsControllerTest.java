@@ -62,7 +62,7 @@ class SetiingsControllerTest {
     @Test
     void removeZone() throws Exception{
         Account seokwon = accountRepository.findByNickname("seokwon");
-        Zone zone = tagRepository.findByCityAndProvince(testZone.getCity(), testZone.getProvinc());
+        Zone zone = zoneRepository.findByCityAndProvince(testZone.getCity(), testZone.getProvinc());
         accountRepository.addTag(seokwon, zone);
 
         TagForm tagForm = new TagForm();
