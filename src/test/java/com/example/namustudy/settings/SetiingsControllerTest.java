@@ -9,6 +9,7 @@ import com.example.namustudy.domain.Tag;
 import com.example.namustudy.domain.Zone;
 import com.example.namustudy.settings.form.TagForm;
 import com.example.namustudy.tag.TagRepository;
+import com.example.namustudy.zone.ZoneRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,12 +51,18 @@ class SetiingsControllerTest {
     AccountService accountService;
     @Autowired
     TagRepository tagRepository;
+    @Autowired
+    ZoneRepository zoneRepository;
 
     @AfterEach
     void afterEach(){
         accountRepository.deleteAll();
     }
 
+    @BeforeEach
+    void beforeEach(){
+        zoneRepository.save(testZone);
+    }
 
     @WithAccount("seokwon")
     @DisplayName("계정에 태그 추가")
