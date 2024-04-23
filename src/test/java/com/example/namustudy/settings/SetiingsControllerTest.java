@@ -8,6 +8,7 @@ import com.example.namustudy.domain.Account;
 import com.example.namustudy.domain.Tag;
 import com.example.namustudy.domain.Zone;
 import com.example.namustudy.settings.form.TagForm;
+import com.example.namustudy.settings.form.ZoneForm;
 import com.example.namustudy.tag.TagRepository;
 import com.example.namustudy.zone.ZoneRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -93,6 +94,14 @@ class SetiingsControllerTest {
                 .andExpect(model().attributeExists("account"))
                 .andExpect(model().attributeExists("whitelist"))
                 .andExpect(model().attributeExists("zones"));
+    }
+
+    @WithAccount("seokwon")
+    @DisplayName("계정의 지역 정보 추가")
+    @Test
+    void addZone() throws Exception{
+        ZoneForm zoneForm = new ZoneForm();
+        zoneForm.setZoneName(testZone.toString());
     }
 
 
