@@ -27,7 +27,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import javax.transaction.Transactional;
 
-import static com.example.namustudy.settings.SetiingsController.ZONES;
+import static com.example.namustudy.settings.SetiingsController.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -90,7 +90,7 @@ class SetiingsControllerTest {
     @Test
     void updateZonesForm() throws Exception{
         mockMvc.perform(get(SetiingsController.SETTINGS_TAGS_URL))
-                .andExpect(view().name(SetiingsController.SETTINGS + ZONES))
+                .andExpect(view().name(SETTINGS + ZONES))
                 .andExpect(model().attributeExists("account"))
                 .andExpect(model().attributeExists("whitelist"))
                 .andExpect(model().attributeExists("zones"));
@@ -102,6 +102,10 @@ class SetiingsControllerTest {
     void addZone() throws Exception{
         ZoneForm zoneForm = new ZoneForm();
         zoneForm.setZoneName(testZone.toString());
+
+        mockMvc.perform(post(ROOT+SETTINGS + ZONES + "/add")
+
+        )
     }
 
 
