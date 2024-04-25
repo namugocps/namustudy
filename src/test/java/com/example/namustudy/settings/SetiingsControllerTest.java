@@ -55,6 +55,8 @@ class SetiingsControllerTest {
     @Autowired
     ZoneRepository zoneRepository;
 
+    private Zone testZone = Zone.builder().city("test").localNameOfCity("테스트시").province("테스트주").build();
+
     @AfterEach
     void afterEach(){
         accountRepository.deleteAll();
