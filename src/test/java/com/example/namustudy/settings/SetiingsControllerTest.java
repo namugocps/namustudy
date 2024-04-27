@@ -41,7 +41,6 @@ class SetiingsControllerTest {
 
     @Autowired
     MockMvc mockMvc;
-    
     @Autowired
     AccountRepository accountRepository;
     @Autowired
@@ -107,8 +106,8 @@ class SetiingsControllerTest {
         zoneForm.setZoneName(testZone.toString());
 
         mockMvc.perform(post(ROOT+SETTINGS + ZONES + "/add")
-
-        )
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsBytes(zoneForm)));
     }
 
 
