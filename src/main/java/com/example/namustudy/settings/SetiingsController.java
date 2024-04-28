@@ -38,10 +38,6 @@ public class SetiingsController {
 
     static final String ROOT = "/";
     static final String SETTINGS = "settings";
-    static final String PROFILE = "/profile";
-    static final String PASSWORD = "/password";
-    static final String NOTIFICATIONS = "/notifications";
-    static final String ACCOUNT = "/account";
     static final String TAGS = "/tags";
     static final String ZONES = "/zones";
 
