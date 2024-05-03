@@ -33,6 +33,7 @@ import java.util.stream.Collectors;
 import static java.lang.Character.UnicodeBlock.TAGS;
 
 @Controller
+@RequestMapping("/settings")
 @RequiredArgsConstructor
 public class SetiingsController {
 
