@@ -14,6 +14,7 @@ import com.example.namustudy.settings.validator.PasswordFormValidator;
 import com.example.namustudy.tag.TagRepository;
 import com.example.namustudy.zone.ZoneRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
@@ -65,6 +66,7 @@ public class SetiingsController {
     private final NicknameValidator nicknameValidator;
     private final TagRepository tagRepository;
     private final ZoneRepository zoneRepository;
+    private final ObjectMapper objectMapper;
 
     @InitBinder("passwordForm")
     public void initBinder(WebDataBinder webDataBinder){
