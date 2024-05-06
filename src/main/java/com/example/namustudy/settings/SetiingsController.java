@@ -78,11 +78,11 @@ public class SetiingsController {
         webDataBinder.addValidators(nicknameValidator);
     }
 
-    @GetMapping(SETTINGS_PROFILE_URL)
+    @GetMapping(PROFILE)
     public String updateProfileForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(modelMapper.map(account, Profile.class));
-        return SETTINGS_PROFILE_VIEW_NAME;
+        return SETTINGS + PROFILE;
     }
 
     @PostMapping(SETTINGS_PROFILE_URL)
