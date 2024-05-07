@@ -85,7 +85,7 @@ public class SetiingsController {
         return SETTINGS + PROFILE;
     }
 
-    @PostMapping(SETTINGS_PROFILE_URL)
+    @PostMapping(PROFILE)
     public String updateProfile(@CurrentUser Account account, @Valid Profile profile, Errors errors, Model model,
                                 RedirectAttributes attributes){
         if(errors.hasErrors()){
