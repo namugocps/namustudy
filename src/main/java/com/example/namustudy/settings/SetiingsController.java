@@ -90,7 +90,7 @@ public class SetiingsController {
                                 RedirectAttributes attributes){
         if(errors.hasErrors()){
             model.addAttribute(account);
-            return SETTINGS_PROFILE_VIEW_NAME;
+            return SETTINGS + PROFILE;
         }
 
         accountService.updateProfile(account, profile);
