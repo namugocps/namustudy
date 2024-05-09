@@ -102,7 +102,7 @@ public class SetiingsController {
     public String updatePasswordForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(new PasswordForm());
-        return SETTINGS_PASSWORD_VIEW_NAME;
+        return SETTINGS + PASSWORD;
     }
 
     @PostMapping(SETTINGS_PASSWORD_URL)
