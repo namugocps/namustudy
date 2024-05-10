@@ -111,7 +111,7 @@ public class SetiingsController {
 
         if(errors.hasErrors()){
             model.addAttribute(account);
-            return SETTINGS_PASSWORD_VIEW_NAME;
+            return SETTINGS + PASSWORD;
         }
 
         accountService.updatePassword(account, passwordForm.getNewPassword());
