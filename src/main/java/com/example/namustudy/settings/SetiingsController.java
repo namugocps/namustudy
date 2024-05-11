@@ -31,10 +31,12 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static com.example.namustudy.settings.SetiingsController.ROOT;
+import static com.example.namustudy.settings.SetiingsController.SETTINGS;
 import static java.lang.Character.UnicodeBlock.TAGS;
 
 @Controller
-@RequestMapping("/settings")
+@RequestMapping(ROOT + SETTINGS)
 @RequiredArgsConstructor
 public class SetiingsController {
 
