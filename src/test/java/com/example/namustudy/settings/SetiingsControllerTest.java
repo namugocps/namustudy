@@ -91,7 +91,7 @@ class SetiingsControllerTest {
     @DisplayName("계정의 지역 정보 수정 폼")
     @Test
     void updateZonesForm() throws Exception{
-        mockMvc.perform(get(SetiingsController.SETTINGS_TAGS_URL))
+        mockMvc.perform(get(ROOT + SETTINGS + ZONES))
                 .andExpect(view().name(SETTINGS + ZONES))
                 .andExpect(model().attributeExists("account"))
                 .andExpect(model().attributeExists("whitelist"))
