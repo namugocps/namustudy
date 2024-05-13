@@ -118,7 +118,7 @@ public class SetiingsController {
 
         accountService.updatePassword(account, passwordForm.getNewPassword());
         attributes.addFlashAttribute("message", "패스워드를 변경했습니다.");
-        return "redirect:" + SETTINGS_PASSWORD_URL;
+        return "redirect:" + SETTINGS + PASSWORD;
     }
 
     @GetMapping(SETTINGS_NOTIFICATIONS_URL)
