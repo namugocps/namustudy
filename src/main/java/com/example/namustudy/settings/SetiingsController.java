@@ -148,7 +148,7 @@ public class SetiingsController {
         model.addAttribute("tags",tags.stream().map(Tag::getTitle).collect(Collectors.toList()));
 
         List<String> allTags = tagRepository.findAll().stream().map(Tag::getTitle).collect(Collectors.toList());
-        return SETTINGS_TAGS_VIEW_NAME;
+        return SETTINGS+TAGS;
     }
 
     @PostMapping(SETTINGS_TAGS_URL +"/add")
