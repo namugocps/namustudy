@@ -12,6 +12,7 @@ import com.example.namustudy.settings.form.ZoneForm;
 import com.example.namustudy.tag.TagRepository;
 import com.example.namustudy.zone.ZoneRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.h2.engine.SettingsBase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -116,7 +117,7 @@ class SetiingsControllerTest {
     @DisplayName("계정에 태그 수정 폼")
     @Test
     void updateTagsForm() throws Exception{
-        mockMvc.perform(get(SetiingsController.SETTINGS_TAGS_URL))
+        mockMvc.perform(get(ROOT+ SETTINGS +TAGS))
                 .andExpect(view().name(SetiingsController.SETTINGS_TAGS_VIEW_NAME))
                 .andExpect(model().attributeExists("account"))
                 .andExpect(model().attributeExists("whitelist"))
