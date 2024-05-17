@@ -141,7 +141,7 @@ public class SetiingsController {
         return "redirect:" + SETTINGS_NOTIFICATIONS_URL;
     }
 
-    @GetMapping(SETTINGS_TAGS_URL)
+    @GetMapping(SETTINGS + TAGS)
     public String updateTags(@CurrentUser Account account, Model model) throws JsonProcessingException {
         model.addAttribute(account);
         Set<Tag> tags =accountService.getTags(account);
