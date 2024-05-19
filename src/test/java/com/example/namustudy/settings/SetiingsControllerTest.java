@@ -155,7 +155,7 @@ class SetiingsControllerTest {
         TagForm tagForm = new TagForm();
         tagForm.setTagTitle("newTag");
 
-        mockMvc.perform(post(SetiingsController.SETTINGS_TAGS_URL + "/add")
+        mockMvc.perform(post(ROOT+ SETTINGS +TAGS  + "/add")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsBytes(tagForm))
                         .with(csrf()))
