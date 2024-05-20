@@ -168,7 +168,7 @@ class SetiingsControllerTest {
     @DisplayName("프로필 수정 폼")
     @Test
     void updateProfileForm() throws Exception{
-        mockMvc.perform(get(SetiingsController.SETTINGS_PROFILE_URL))
+        mockMvc.perform(get(ROOT+ SETTINGS +PROFILE))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("account"))
                 .andExpect(model().attributeExists("profile"));
