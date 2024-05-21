@@ -179,7 +179,7 @@ class SetiingsControllerTest {
     @Test
     void updateProfile() throws Exception{
         String bio = "짧은 소개 수정";
-        mockMvc.perform(post(SetiingsController.SETTINGS_PROFILE_URL)
+        mockMvc.perform(post(ROOT+ SETTINGS +PROFILE)
                 .param("bio", bio)
                 .with(csrf()))
                 .andExpect(status().is3xxRedirection())
