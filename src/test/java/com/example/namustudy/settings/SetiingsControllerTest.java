@@ -196,7 +196,7 @@ class SetiingsControllerTest {
     @Test
     void updateProfile_error() throws Exception{
         String bio = "길게 소개를 수정하는 경우. 길게 소개를 수정하는 경우. 길게 소개를 수정하는 경우. 길게 소개를 수정하는 경우. 길게 소개를 수정하는 경우.";
-        mockMvc.perform(post(SetiingsController.SETTINGS_PROFILE_URL)
+        mockMvc.perform(post(ROOT+ SETTINGS +PROFILE)
                         .param("bio", bio)
                         .with(csrf()))
                 .andExpect(status().isOk())
