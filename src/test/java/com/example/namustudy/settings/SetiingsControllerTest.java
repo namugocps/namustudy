@@ -214,7 +214,7 @@ class SetiingsControllerTest {
     @DisplayName("패스워드 수정 폼")
     @Test
     void updatePassword_form() throws Exception{
-        mockMvc.perform(get(SetiingsController.SETTINGS_PASSWORD_URL))
+        mockMvc.perform(get(ROOT+ SETTINGS +PASSWORD))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("account"))
                 .andExpect(model().attributeExists("passwordForm"));
