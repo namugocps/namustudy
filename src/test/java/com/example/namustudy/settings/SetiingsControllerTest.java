@@ -224,7 +224,7 @@ class SetiingsControllerTest {
     @DisplayName("패스워드 수정 - 입력값 정상")
     @Test
     void updatePassword_success() throws Exception{
-        mockMvc.perform(get(SetiingsController.SETTINGS_PASSWORD_URL)
+        mockMvc.perform(get(ROOT+ SETTINGS +PASSWORD)
                 .param("newPassword","12345678")
                 .param("newPasswordConfirm","12345678")
                 .with(csrf()))
