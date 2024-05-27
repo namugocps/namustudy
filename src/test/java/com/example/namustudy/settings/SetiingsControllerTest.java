@@ -118,7 +118,7 @@ class SetiingsControllerTest {
     @Test
     void updateTagsForm() throws Exception{
         mockMvc.perform(get(ROOT+ SETTINGS +TAGS))
-                .andExpect(view().name(SetiingsController.SETTINGS_TAGS_VIEW_NAME))
+                .andExpect(view().name(ROOT+ SETTINGS +TAGS))
                 .andExpect(model().attributeExists("account"))
                 .andExpect(model().attributeExists("whitelist"))
                 .andExpect(model().attributeExists("tags"));
