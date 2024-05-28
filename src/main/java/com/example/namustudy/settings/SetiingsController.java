@@ -125,7 +125,7 @@ public class SetiingsController {
     public String updateNotificationsForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(modelMapper.map(account, Notifications.class));
-        return SETTINGS_NOTIFICATIONS_VIEW_NAME;
+        return SETTINGS+NOTIFICATIONS;
     }
 
     @PostMapping(SETTINGS_NOTIFICATIONS_URL)
