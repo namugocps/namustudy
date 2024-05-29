@@ -128,7 +128,7 @@ public class SetiingsController {
         return SETTINGS+NOTIFICATIONS;
     }
 
-    @PostMapping(SETTINGS_NOTIFICATIONS_URL)
+    @PostMapping(SETTINGS + NOTIFICATIONS)
     public String updateNotifications(@CurrentUser Account account, @Valid Notifications notifications, Errors errors, Model model,
                                       RedirectAttributes attributes){
         if(errors.hasErrors()){
