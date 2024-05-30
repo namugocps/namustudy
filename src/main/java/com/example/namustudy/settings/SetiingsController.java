@@ -121,7 +121,7 @@ public class SetiingsController {
         return "redirect:" + SETTINGS + PASSWORD;
     }
 
-    @GetMapping(SETTINGS_NOTIFICATIONS_URL)
+    @GetMapping(SETTINGS+NOTIFICATIONS)
     public String updateNotificationsForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(modelMapper.map(account, Notifications.class));
