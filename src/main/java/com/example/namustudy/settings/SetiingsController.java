@@ -138,7 +138,7 @@ public class SetiingsController {
 
         accountService.updateNotifications(account, notifications);
         attributes.addFlashAttribute("message", "알림 설정을 변경했습니다.");
-        return "redirect:" + SETTINGS_NOTIFICATIONS_URL;
+        return "redirect:" + SETTINGS+NOTIFICATIONS;
     }
 
     @GetMapping(SETTINGS + TAGS)
