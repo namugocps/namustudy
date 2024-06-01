@@ -47,6 +47,7 @@ public class SetiingsController {
     static final String NOTIFICATIONS = "/notifications";
     static final String TAGS = "/tags";
     static final String ZONES = "/zones";
+    static final String ACCOUNT = "/account";
 
     static final String SETTINGS_PROFILE_VIEW_NAME = "settings/profile";
     static final String SETTINGS_PROFILE_URL = "/settings/profile";
@@ -216,7 +217,7 @@ public class SetiingsController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(SETTINGS_ACCOUNT_URL)
+    @GetMapping(SETTINGS + )
     public String updateAccountForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(modelMapper.map(account, NicknameForm.class));
