@@ -152,7 +152,7 @@ public class SetiingsController {
         return SETTINGS+TAGS;
     }
 
-    @PostMapping(SETTINGS_TAGS_URL +"/add")
+    @PostMapping(SETTINGS + TAGS +"/add")
     @ResponseBody
     public ResponseEntity addTag(@CurrentUser Account account, @RequestBody TagForm tagForm){
         String title = tagForm.getTagTitle();
