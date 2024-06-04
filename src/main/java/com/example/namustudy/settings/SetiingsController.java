@@ -217,7 +217,7 @@ public class SetiingsController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(SETTINGS + )
+    @GetMapping(SETTINGS + "/account")
     public String updateAccountForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(modelMapper.map(account, NicknameForm.class));
