@@ -133,7 +133,7 @@ public class SetiingsController {
                                       RedirectAttributes attributes){
         if(errors.hasErrors()){
             model.addAttribute(account);
-            return SETTINGS_NOTIFICATIONS_VIEW_NAME;
+            return SETTINGS+NOTIFICATIONS;
         }
 
         accountService.updateNotifications(account, notifications);
