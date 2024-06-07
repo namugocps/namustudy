@@ -220,7 +220,7 @@ public class SetiingsController {
     public String updateAccountForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(modelMapper.map(account, NicknameForm.class));
-        return SETTINGS_ACCOUNT_VIEW_NAME;
+        return SETTINGS+ACCOUNT;
     }
 
     @PostMapping(SETTINGS_ACCOUNT_URL)
