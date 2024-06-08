@@ -233,6 +233,6 @@ public class SetiingsController {
 
         accountService.updateNickname(account, nicknameForm.getNickname());
         attributes.addFlashAttribute("message","닉네임을 수정했습니다.");
-        return "redirect:" + SETTINGS_ACCOUNT_URL;
+        return "redirect:" + SETTINGS + ACCOUNT;
     }
 }
