@@ -228,7 +228,7 @@ public class SetiingsController {
                                     Model model, RedirectAttributes attributes){
         if(errors.hasErrors()){
             model.addAttribute(account);
-            return SETTINGS_ACCOUNT_VIEW_NAME;
+            return SETTINGS + ACCOUNT;
         }
 
         accountService.updateNickname(account, nicknameForm.getNickname());
