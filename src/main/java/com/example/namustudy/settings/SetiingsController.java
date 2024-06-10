@@ -223,7 +223,7 @@ public class SetiingsController {
         return SETTINGS+ACCOUNT;
     }
 
-    @PostMapping(SETTINGS_ACCOUNT_URL)
+    @PostMapping(SETTINGS+ACCOUNT)
     public String updateAccount(@CurrentUser Account account, @Valid NicknameForm nicknameForm, Errors errors,
                                     Model model, RedirectAttributes attributes){
         if(errors.hasErrors()){
