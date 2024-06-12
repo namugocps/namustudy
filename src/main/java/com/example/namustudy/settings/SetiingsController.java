@@ -107,7 +107,7 @@ public class SetiingsController {
         return SETTINGS + PASSWORD;
     }
 
-    @PostMapping(SETTINGS_PASSWORD_URL)
+    @PostMapping(SETTINGS + PASSWORD)
     public String updatePassword(@CurrentUser Account account, @Valid PasswordForm passwordForm
             , Errors errors, Model model, RedirectAttributes attributes){
 
