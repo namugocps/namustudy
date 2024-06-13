@@ -100,7 +100,7 @@ public class SetiingsController {
         return "redirect:" +SETTINGS + PROFILE;
     }
 
-    @GetMapping(SETTINGS_PASSWORD_URL)
+    @GetMapping(SETTINGS + PASSWORD)
     public String updatePasswordForm(@CurrentUser Account account, Model model){
         model.addAttribute(account);
         model.addAttribute(new PasswordForm());
