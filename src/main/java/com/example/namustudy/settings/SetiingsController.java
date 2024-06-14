@@ -54,11 +54,7 @@ public class SetiingsController {
 
     static final String SETTINGS_PASSWORD_VIEW_NAME = "settings/password";
     static final String SETTINGS_PASSWORD_URL = "/settings/password";
-
-    static final String SETTINGS_NOTIFICATIONS_VIEW_NAME = "settings/notifications";
-
-    static final String SETTINGS_ACCOUNT_VIEW_NAME = "settings/account";
-    static final String SETTINGS_ACCOUNT_URL = "/settings/account";
+    
 
     static final String SETTINGS_TAGS_VIEW_NAME = "settings/tags";
     static final String SETTINGS_TAGS_URL = "/" + SETTINGS_TAGS_VIEW_NAME;
