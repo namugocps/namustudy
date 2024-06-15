@@ -57,7 +57,6 @@ public class SetiingsController {
     
 
     static final String SETTINGS_TAGS_VIEW_NAME = "settings/tags";
-    static final String SETTINGS_TAGS_URL = "/" + SETTINGS_TAGS_VIEW_NAME;
 
     private final AccountService accountService;
     private final ModelMapper modelMapper;
