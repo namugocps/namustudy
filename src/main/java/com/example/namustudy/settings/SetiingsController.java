@@ -55,9 +55,6 @@ public class SetiingsController {
     static final String SETTINGS_PASSWORD_VIEW_NAME = "settings/password";
     static final String SETTINGS_PASSWORD_URL = "/settings/password";
     
-
-    static final String SETTINGS_TAGS_VIEW_NAME = "settings/tags";
-
     private final AccountService accountService;
     private final ModelMapper modelMapper;
     private final NicknameValidator nicknameValidator;
