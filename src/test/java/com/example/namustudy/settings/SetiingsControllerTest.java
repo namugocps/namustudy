@@ -181,7 +181,7 @@ class SetiingsControllerTest {
                 .param("bio", bio)
                 .with(csrf()))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl(SetiingsController.SETTINGS_PROFILE_URL))
+                .andExpect(redirectedUrl(SETTINGS + PROFILE))
                 .andExpect(flash().attributeExists("message"));
 
         Account kee = accountRepository.findByNickname("kee");
