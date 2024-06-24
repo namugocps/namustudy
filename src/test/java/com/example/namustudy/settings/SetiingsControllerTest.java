@@ -243,7 +243,7 @@ class SetiingsControllerTest {
                 .param("newPasswordConfirm","12345678")
                 .with(csrf()))
                 .andExpect(status().isOk())
-                .andExpect(view().name(SetiingsController.SETTINGS_PASSWORD_VIEW_NAME))
+                .andExpect(view().name(SETTINGS + PASSWORD))
                 .andExpect(model().hasErrors())
                 .andExpect(model().attributeExists("passwordForm"))
                 .andExpect(model().attributeExists("account"));
