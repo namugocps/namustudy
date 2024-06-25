@@ -49,7 +49,6 @@ public class SetiingsController {
 
     static final String SETTINGS_PROFILE_URL = "/settings/profile";
 
-    static final String SETTINGS_PASSWORD_VIEW_NAME = "settings/password";
     static final String SETTINGS_PASSWORD_URL = "/settings/password";
 
     private final AccountService accountService;
