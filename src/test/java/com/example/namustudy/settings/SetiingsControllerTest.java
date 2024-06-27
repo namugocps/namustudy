@@ -3,7 +3,6 @@ package com.example.namustudy.settings;
 import com.example.namustudy.WithAccount;
 import com.example.namustudy.account.AccountRepository;
 import com.example.namustudy.account.AccountService;
-import com.example.namustudy.account.SignUpForm;
 import com.example.namustudy.domain.Account;
 import com.example.namustudy.domain.Tag;
 import com.example.namustudy.domain.Zone;
