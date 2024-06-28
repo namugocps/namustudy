@@ -11,7 +11,6 @@ import com.example.namustudy.settings.form.ZoneForm;
 import com.example.namustudy.tag.TagRepository;
 import com.example.namustudy.zone.ZoneRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.h2.engine.SettingsBase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
