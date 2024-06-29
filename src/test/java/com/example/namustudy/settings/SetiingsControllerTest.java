@@ -225,7 +225,7 @@ class SetiingsControllerTest {
                 .param("newPasswordConfirm","12345678")
                 .with(csrf()))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl(SetiingsController.SETTINGS_PASSWORD_URL))
+                .andExpect(redirectedUrl(SETTINGS +PASSWORD))
                 .andExpect(flash().attributeExists("message"));
 
         Account seokwon = accountRepository.findByNickname("seokwon");
