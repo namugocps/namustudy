@@ -106,9 +106,7 @@ class SetiingsControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(zoneForm)));
     }
-
-
-
+    
     @WithAccount("seokwon")
     @DisplayName("계정에 태그 수정 폼")
     @Test
