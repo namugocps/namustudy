@@ -47,6 +47,7 @@ public class SetiingsController {
     static final String ZONES = "/zones";
     static final String ACCOUNT = "/account";
     static final String SETTINGS_PROFILE_URL = "/settings/profile";
+
     private final AccountService accountService;
     private final ModelMapper modelMapper;
     private final NicknameValidator nicknameValidator;
